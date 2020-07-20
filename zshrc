@@ -8,18 +8,26 @@ zinit light zdharma/fast-syntax-highlighting
 
 
 . $ZSH_HOME/env.zsh
-. $ZSH_HOME/themes/powerlevel10k/powerlevel10k.zsh-theme
 . $ZSH_HOME/settings.zsh
 . $ZSH_HOME/aliases.zsh
 
-# PROGRAMS
-. $ZSH_HOME/gcloud.zsh
-. $ZSH_HOME/pyenv.zsh
-. $ZSH_HOME/go.zsh
+# PLUGINS
+PLUGINS=(
+  gcloud 
+  pyenv
+  go
+)
 
+for plug in "${PLUGINS[@]}"; do
+  source "$ZSH_HOME/plugins/$plug.zsh"
+done
+
+# THEME
+. $ZSH_HOME/themes/powerlevel10k/powerlevel10k.zsh-theme
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-. ~/.zshrc_local
+# LOCAL OVERRIDE
+[[ ! -f ~/.zshrc_local ]] || source ~/.zshrc_local
 
 autoload -Uz compinit

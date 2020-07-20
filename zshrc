@@ -23,8 +23,9 @@ for plug in "${PLUGINS[@]}"; do
 done
 
 # THEME
-. $ZSH_HOME/themes/powerlevel10k/powerlevel10k.zsh-theme
+# . $ZSH_HOME/themes/powerlevel10k/powerlevel10k.zsh-theme
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+zinit ice depth=1; zinit light romkatv/powerlevel10k
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # LOCAL OVERRIDE

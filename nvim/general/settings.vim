@@ -29,6 +29,10 @@ set nowritebackup
 set undodir=~/.vim/undodir
 set undofile
 
+if has("nvim")
+  set inccommand=split
+endif
+
 set background=dark             " Background 
 set colorcolumn=80
 highlight ColorColumn ctermbg=0 guibg=lightgrey

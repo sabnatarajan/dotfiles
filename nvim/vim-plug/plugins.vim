@@ -9,9 +9,11 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
 Plug 'jremmen/vim-ripgrep'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
 Plug 'vim-utils/vim-man'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/gv.vim'
 Plug 'neoclide/coc.nvim'          " Completion
 Plug 'mbbill/undotree'
 Plug 'preservim/nerdtree'
@@ -27,5 +29,6 @@ Plug 'liuchengxu/vim-which-key'   " Keybinding helper
 Plug 'gruvbox-community/gruvbox'
 Plug 'vim-airline/vim-airline'
 Plug 'phanviet/vim-monokai-pro'
+Plug 'joshdick/onedark.vim'
 
 call plug#end()

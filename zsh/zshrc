@@ -10,6 +10,7 @@ zinit light zdharma/fast-syntax-highlighting
 . $ZSH_HOME/env.zsh
 . $ZSH_HOME/settings.zsh
 . $ZSH_HOME/aliases.zsh
+. $ZSH_HOME/functions.zsh
 
 # PLUGINS
 PLUGINS=(

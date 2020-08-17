@@ -21,8 +21,6 @@ alias md="mkdir -p"
 alias rmr="rm -r"
 alias rmrf="rm -rf"
 
-alias zr="cd $(git rev-parse --show-toplevel)"
-
 # VIM
 alias vi=nvim
 alias vim=nvim

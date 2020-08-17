@@ -21,6 +21,8 @@ alias md="mkdir -p"
 alias rmr="rm -r"
 alias rmrf="rm -rf"
 
+alias zr="cd $(git rev-parse --show-toplevel)"
+
 # VIM
 alias vi=nvim
 alias vim=nvim
@@ -37,6 +39,7 @@ alias gb="git branch"
 alias gco="git checkout"
 alias gcob="git checkout -b"
 alias gclo="git clone"
+alias gr="git rev-parse --show-toplevel"
 
 # GIT: Commits
 alias gc="git commit -v"

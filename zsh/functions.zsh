@@ -1,12 +1,14 @@
 zd() {
   local dir
-  dir=$(fd --type directory | fzf +m) || return
+  PATTERN=${1:-""}
+  dir=$(fd --type directory | fzf +m -q $PATTERN) || return
   cd $dir || return
 }
 
 zda() {
   local dir
-  dir=$(fd --type directory --hidden | fzf +m) || return
+  PATTERN=${1:-""}
+  dir=$(fd --type directory --hidden $PATTERN | fzf +m) || return
   cd $dir || return
 }
 
@@ -16,4 +18,6 @@ zroot() {
   cd $gitrootdir || return
 }
 
-
+zz() {
+  cd
+}

@@ -17,6 +17,7 @@ PLUGINS=(
   pyenv
   go
   z
+  fzf
 )
 
 for plug in "${PLUGINS[@]}"; do

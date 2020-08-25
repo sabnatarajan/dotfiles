@@ -7,22 +7,23 @@ endif
 
 call plug#begin('~/.config/nvim/autoload/plugged')
 
+Plug 'airblade/vim-rooter'
+Plug 'airblade/vim-gitgutter'
 Plug 'jremmen/vim-ripgrep'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-surround'
-Plug 'vim-utils/vim-man'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/gv.vim'
-Plug 'neoclide/coc.nvim'          " Completion
+Plug 'junegunn/vim-easy-align'
+Plug 'liuchengxu/vim-which-key' " Keybinding helper
 Plug 'mbbill/undotree'
+Plug 'mhinz/vim-startify'
+Plug 'neoclide/coc.nvim'        " Completion
 Plug 'preservim/nerdtree'
 Plug 'sheerun/vim-polyglot'
-Plug 'mhinz/vim-startify'
-Plug 'tpope/vim-commentary'       " Better comments
-Plug 'airblade/vim-rooter'
-Plug 'airblade/vim-gitgutter'
-Plug 'liuchengxu/vim-which-key'   " Keybinding helper
+Plug 'tpope/vim-commentary'     " Better comments
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'vim-utils/vim-man'
 
 
 " Themes

@@ -14,11 +14,6 @@ nnoremap <leader>p :FZF<CR>
 vnoremap < <gv
 vnoremap > >gv
 
-" Better nav for omnicomplete
-inoremap <expr> <c-j> ("\<C-n>")
-inoremap <expr> <c-k> ("\<C-p>")
-
-
 " TAB in general mode will move to text buffer
 nnoremap <silent> <TAB> :bnext<CR>
 " SHIFT-TAB will go back

@@ -8,7 +8,7 @@ bindkey -M menuselect 'j' vi-down-line-or-history
 
 # Better history
 HISTSIZE=1048576
-HISTFILE="$HOME/.zsh_history"
+HISTFILE=${XDG_CACHE_HOME:-$HOME/.cache}/zsh/.zsh_history
 SAVEHIST=$HISTSIZE
 setopt APPEND_HISTORY
 setopt HIST_IGNORE_ALL_DUPS

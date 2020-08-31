@@ -1,6 +1,6 @@
-source $HOME/.config/nvim/vim-plug/plugins.vim
-source $HOME/.config/nvim/general/settings.vim
-source $HOME/.config/nvim/keys/general.vim
+source $HOME/.config/nvim/plugins.vim
+source $HOME/.config/nvim/settings.vim
+source $HOME/.config/nvim/keys.vim
 
 " Theme
 source $HOME/.config/nvim/themes/gruvbox.vim

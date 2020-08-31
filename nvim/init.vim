@@ -5,5 +5,4 @@ source $HOME/.config/nvim/keys.vim
 " Theme
 source $HOME/.config/nvim/themes/gruvbox.vim
 
-source $HOME/.config/nvim/plug-config/coc.vim
-source $HOME/.config/nvim/plug-config/fzf.vim
+source $HOME/.config/nvim/plug-config.vim

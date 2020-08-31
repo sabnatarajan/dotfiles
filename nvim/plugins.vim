@@ -14,17 +14,18 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/gv.vim'
 Plug 'junegunn/vim-easy-align'
-Plug 'liuchengxu/vim-which-key' " Keybinding helper
+Plug 'liuchengxu/vim-which-key'    " Keybinding helper
 Plug 'mbbill/undotree'
 Plug 'mhinz/vim-startify'
-Plug 'neoclide/coc.nvim'        " Completion
-Plug 'preservim/nerdtree'
+Plug 'neoclide/coc.nvim'           " Completion
+Plug 'preservim/nerdtree'          " File tree
+Plug 'Xuyuanp/nerdtree-git-plugin' " Git plugin for NERDTree
+Plug 'ryanoasis/vim-devicons'      " Icons for vim plugins
 Plug 'sheerun/vim-polyglot'
-Plug 'tpope/vim-commentary'     " Better comments
+Plug 'tpope/vim-commentary'        " Better comments
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'vim-utils/vim-man'
-
 
 " Themes
 Plug 'gruvbox-community/gruvbox'

@@ -26,7 +26,6 @@ set laststatus=2                " Always display status line
 set noswapfile
 set nobackup
 set nowritebackup
-set undodir=~/.vim/undodir
 set undofile
 
 if has("nvim")

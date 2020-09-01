@@ -8,18 +8,20 @@ fi
 export DOTFILES_HOME=$HOME/dotfiles
 export ZSH_HOME="$DOTFILES_HOME/zsh"
 
-source $ZSH_HOME/.zinit/zinit.zsh
+source $DOTFILES_HOME/zsh/.zinit/zinit.zsh
 
 zinit light zsh-users/zsh-autosuggestions
 zinit light zdharma/fast-syntax-highlighting
 
 
-. $ZSH_HOME/env.zsh
-. $ZSH_HOME/settings.zsh
-. $ZSH_HOME/aliases.zsh
-. $ZSH_HOME/functions.zsh
+. $DOTFILES_HOME/zsh/env.zsh
+. $DOTFILES_HOME/zsh/settings.zsh
+. $DOTFILES_HOME/zsh/aliases.zsh
+. $DOTFILES_HOME/zsh/functions.zsh
 
+###############################################################################
 # PLUGINS
+#
 PLUGINS=(
   gcloud 
   pyenv
@@ -32,18 +34,27 @@ for plug in "${PLUGINS[@]}"; do
   source "$ZSH_HOME/plugins/$plug.zsh"
 done
 
+###############################################################################
 # THEME
-# . $ZSH_HOME/themes/powerlevel10k/powerlevel10k.zsh-theme
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+#
 zinit ice depth=1; zinit light romkatv/powerlevel10k
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 
-# LOCAL OVERRIDE
-[[ ! -f ~/.zshrc_local ]] || source ~/.zshrc_local
 
+###############################################################################
+# COMPLETIONS
+#
+ZSH_COMPINIT_DIR=${XDG_CACHE_HOME:-$HOME/.cache}/zsh 
 autoload -Uz compinit
 if [ $(date +'%j') != $(stat -f '%Sm' -t '%j' ~/.zcompdump) ]; then
-  compinit
+  compinit -d $ZSH_COMPINIT_DIR
 else 
-  compinit -C
+  compinit -C -d $ZSH_COMPINIT_DIR
 fi
+
+###############################################################################
+# LOCAL OVERRIDE
+#
+[[ ! -f ~/.zshrc_local ]] || source ~/.zshrc_local
+

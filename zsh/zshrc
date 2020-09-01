@@ -1,7 +1,7 @@
 export DOTFILES_HOME=$HOME/dotfiles
 export ZSH_HOME="$DOTFILES_HOME/zsh"
 
-source $ZSH_HOME/zinit/zinit.zsh
+source $ZSH_HOME/.zinit/zinit.zsh
 
 zinit light zsh-users/zsh-autosuggestions
 zinit light zdharma/fast-syntax-highlighting

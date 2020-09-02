@@ -7,7 +7,7 @@ imap <C-l> <C-w>l
 let mapleader=" "
 
 " FZF
-nnoremap <C-P> :GFiles<CR>
+nnoremap <C-P> :Files<CR>
 nnoremap <leader>p :FZF<CR>
 
 " Better indenting

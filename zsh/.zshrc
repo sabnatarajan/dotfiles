@@ -53,8 +53,17 @@ source $ZSH_HOME/settings.zsh
 # -------------------
 # Zinit
 # -------------------
+ZINIT_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/zinit"
 
-source $ZSH_HOME/.zinit/zinit.zsh
+if [[ ! -f "$ZINIT_HOME/zinit.zsh" ]]; then
+    print -P "%F{33}▓▒░ %F{220}Installing DHARMA Initiative Plugin Manager (zdharma/zinit)…%f"
+    command mkdir -p "$ZINIT_HOME" && command chmod g-rwX "$ZINIT_HOME"
+    command git clone https://github.com/zdharma/zinit "$ZINIT_HOME" && \
+        print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
+        print -P "%F{160}▓▒░ The clone has failed.%f%b"
+fi
+
+source $ZINIT_HOME/zinit.zsh
 autoload -Uz _zinit
 if [ "$(whoami)" = "YOUR_NON_ADMIN_USER" ]; then
   compinit -i    # Ignore Insecure Directories

@@ -4,6 +4,9 @@
 sxhkd &
 picom &
 ~/.config/polybar/launch.sh &
+xrdb ~/.Xresources &
+nm-applet &
+blueman-applet &
 
 # -----------------------------------
 # BSPWM Config
@@ -12,8 +15,8 @@ bspc monitor DVI-D-0 -d 1 2 3 4 5 6 7 8 9
 bspc monitor DP-0 -d 1 2 3 4 5 6 7 8 9
 
 #bspc config border_radius                8
-bspc config border_width                  2
-bspc config window_gap                    10
+bspc config border_width                  0
+bspc config window_gap                    6
 bspc config top_padding                   20
 bspc config bottom_padding                0
 bspc config left_padding                  0

@@ -8,7 +8,7 @@ EOF
     return
   fi
 
-  whichos
+  whichos > /dev/null
   case $OS_DISTR in
     "Arch Linux")
       sudo archlinux-java set java-$1-openjdk

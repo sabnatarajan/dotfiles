@@ -104,6 +104,7 @@ foreach conf (
   plugins/go
   plugins/z
   plugins/fzf
+  plugins/java
 ) {
   source $ZSH_HOME/$conf.zsh
 }

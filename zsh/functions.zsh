@@ -54,3 +54,17 @@ function extract {
     fi
   fi
 }
+
+whichos() {
+  if [ -f /etc/os-release ]; then
+    . /etc/os-release
+    OS_DISTR=$NAME
+  elif type lsb_release > /dev/null 2>&1; then
+    OS_DISTR=$(lsb_release -si)
+  elif [ -f /etc/debian_version ]; then
+    OS_DISTR=Debian
+  else 
+    OS_DISTR="Unknown"
+  fi
+  echo $OS_DISTR
+}

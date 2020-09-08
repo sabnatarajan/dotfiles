@@ -29,7 +29,8 @@ export ZSH_HOME="$DOTFILES_HOME/zsh"
 
 # Init ZSH completion
 # -------------------
-autoload -Uz compinit promptinit
+autoload -Uz compinit promptinit 
+autoload -U +X bashcompinit
 
 # Load And Initialize The Completion System Ignoring Insecure Directories With A
 # Cache Time Of 20 Hours, So It Should Almost Always Regenerate The First Time A
@@ -65,11 +66,8 @@ fi
 
 source $ZINIT_HOME/zinit.zsh
 autoload -Uz _zinit
-if [ "$(whoami)" = "YOUR_NON_ADMIN_USER" ]; then
-  compinit -i    # Ignore Insecure Directories
-else
-  compinit
-fi
+compinit
+bashcompinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
 # zinit light zsh-users/zsh-autosuggestions
@@ -110,9 +108,9 @@ foreach conf (
   source $ZSH_HOME/$conf.zsh
 }
 
+# Local Override
+[[ -f ~/.zshrc_local ]] && source ~/.zshrc_local
+
 # Load theme
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
-
-# Local Override
-[[ ! -f ~/.zshrc_local ]] || source ~/.zshrc_local
 

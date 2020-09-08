@@ -53,6 +53,11 @@ alias glog="git log --oneline --decorate --graph"
 alias glol="git log --graph --pretty=\"%Cred%h%Creset -%C(auto)%d%Creset %s%Cgreen (%cr) %C(bold blue)<%an>%Creset\""
 alias glola="git log --graph --pretty=\"%Cred%h%Creset -%C(auto)%d%Creset %s%Cgreen (%cr) %C(bold blue)<%an>%Creset\" --all"
 
+# GIT: Diff
+alias gd="git diff"
+alias gds="git diff --staged"
+alias gdca="git diff --cached"
+
 # MISC
 alias cl=clear
 alias k=kubectl

@@ -26,6 +26,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'        " Better comments
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
+Plug 'unblevable/quick-scope'
 Plug 'vim-utils/vim-man'
 
 " Themes

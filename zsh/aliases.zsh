@@ -58,6 +58,8 @@ alias gd="git diff"
 alias gds="git diff --staged"
 alias gdca="git diff --cached"
 
+alias lg="lazygit"
+
 # MISC
 alias cl=clear
 alias k=kubectl

@@ -55,6 +55,9 @@ source $ZSH_HOME/settings.zsh
 # Zinit
 # -------------------
 ZINIT_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/zinit"
+declare -A ZINIT
+ZINIT[BIN_DIR]=$ZINIT_HOME/bin
+ZINIT[HOME_DIR]=$ZINIT_HOME
 
 if [[ ! -f "$ZINIT_HOME/zinit.zsh" ]]; then
     print -P "%F{33}▓▒░ %F{220}Installing DHARMA Initiative Plugin Manager (zdharma/zinit)…%f"
@@ -70,10 +73,6 @@ compinit
 bashcompinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
-# zinit light zsh-users/zsh-autosuggestions
-# zinit light zsh-users/zsh-completions
-# zinit light zdharma/fast-syntax-highlighting
-
 # -------------------
 # THEME
 # -------------------
@@ -81,6 +80,28 @@ bashcompinit
 PS1="Ready >"
 zinit ice wait'!' lucid
 zinit ice depth=1; zinit light romkatv/powerlevel10k
+
+# sharkdp/fd: Fast alternative to find
+zinit ice as"command" from"gh-r" mv"fd* -> fd" pick"fd/fd"
+zinit light sharkdp/fd
+
+# junegunn/fzf-bin: Fuzzy finder
+zinit ice from"gh-r" as"program"
+zinit light junegunn/fzf-bin
+
+# sharkdp/bat: Better cat(1)
+zinit ice as"command" from"gh-r" mv"bat* -> bat" pick"bat/bat"
+zinit light sharkdp/bat
+
+# BurntSushi/ripgrep: Better grep
+zinit ice from"gh-r" as"program" mv"ripgrep* -> ripgrep" pick"ripgrep/rg"
+zinit light BurntSushi/ripgrep
+
+# pyenv/pyenv: Manage multiple python versions
+zinit ice atclone'PYENV_ROOT="$PWD" ./libexec/pyenv init - > zpyenv.zsh' \
+    atinit'export PYENV_ROOT="$PWD"' atpull"%atclone" \
+    as'command' pick'bin/pyenv' src"zpyenv.zsh" nocompile'!'
+zinit light pyenv/pyenv
 
 zinit wait lucid light-mode for \
   atinit"zicompinit; zicdreplay" \

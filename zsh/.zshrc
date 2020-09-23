@@ -82,6 +82,14 @@ zinit ice depth=1; zinit light romkatv/powerlevel10k
 zinit ice as"command" from"gh-r" mv"fd* -> fd" pick"fd/fd"
 zinit light sharkdp/fd
 
+# junegunn/fzf-bin: Fuzzy finder
+zinit ice from"gh-r" as"program"
+zinit light junegunn/fzf-bin
+
+# sharkdp/bat: Better cat(1)
+zinit ice as"command" from"gh-r" mv"bat* -> bat" pick"bat/bat"
+zinit light sharkdp/bat
+
 zinit wait lucid light-mode for \
   atinit"zicompinit; zicdreplay" \
     zdharma/fast-syntax-highlighting \

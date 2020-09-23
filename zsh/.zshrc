@@ -90,6 +90,10 @@ zinit light junegunn/fzf-bin
 zinit ice as"command" from"gh-r" mv"bat* -> bat" pick"bat/bat"
 zinit light sharkdp/bat
 
+# BurntSushi/ripgrep: Better grep
+zinit ice from"gh-r" as"program" mv"ripgrep* -> ripgrep" pick"ripgrep/rg"
+zinit light BurntSushi/ripgrep
+
 zinit wait lucid light-mode for \
   atinit"zicompinit; zicdreplay" \
     zdharma/fast-syntax-highlighting \

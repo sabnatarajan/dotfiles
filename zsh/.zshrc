@@ -94,6 +94,12 @@ zinit light sharkdp/bat
 zinit ice from"gh-r" as"program" mv"ripgrep* -> ripgrep" pick"ripgrep/rg"
 zinit light BurntSushi/ripgrep
 
+# pyenv/pyenv: Manage multiple python versions
+zinit ice atclone'PYENV_ROOT="$PWD" ./libexec/pyenv init - > zpyenv.zsh' \
+    atinit'export PYENV_ROOT="$PWD"' atpull"%atclone" \
+    as'command' pick'bin/pyenv' src"zpyenv.zsh" nocompile'!'
+zinit light pyenv/pyenv
+
 zinit wait lucid light-mode for \
   atinit"zicompinit; zicdreplay" \
     zdharma/fast-syntax-highlighting \

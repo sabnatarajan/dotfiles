@@ -55,6 +55,9 @@ source $ZSH_HOME/settings.zsh
 # Zinit
 # -------------------
 ZINIT_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/zinit"
+declare -A ZINIT
+ZINIT[BIN_DIR]=$ZINIT_HOME/bin
+ZINIT[HOME_DIR]=$ZINIT_HOME
 
 if [[ ! -f "$ZINIT_HOME/zinit.zsh" ]]; then
     print -P "%F{33}▓▒░ %F{220}Installing DHARMA Initiative Plugin Manager (zdharma/zinit)…%f"

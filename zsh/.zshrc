@@ -82,6 +82,10 @@ PS1="Ready >"
 zinit ice wait'!' lucid
 zinit ice depth=1; zinit light romkatv/powerlevel10k
 
+# sharkdp/fd: Fast alternative to find
+zinit ice as"command" from"gh-r" mv"fd* -> fd" pick"fd/fd"
+zinit light sharkdp/fd
+
 zinit wait lucid light-mode for \
   atinit"zicompinit; zicdreplay" \
     zdharma/fast-syntax-highlighting \

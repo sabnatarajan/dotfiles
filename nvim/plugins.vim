@@ -16,6 +16,7 @@ Plug 'junegunn/gv.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'justinmk/vim-sneak'
 Plug 'liuchengxu/vim-which-key'    " Keybinding helper
+Plug 'liuchengxu/vista.vim'        " View and search LSP symbols, tags
 Plug 'mbbill/undotree'
 Plug 'mhinz/vim-startify'
 Plug 'neoclide/coc.nvim'           " Completion

@@ -4,3 +4,7 @@ nvim/.netrwhist
 
 .zcompdump*
 .DS_Store
+
+# Karabiner
+karabiner/**/*
+!karabiner/karabiner.json

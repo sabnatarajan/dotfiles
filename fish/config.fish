@@ -18,6 +18,6 @@ and not set -q TMUX
 end
 
 # Local config
-if [ -f ~/.local.fish ]
-  . ~/.local.fish
+if [ -f ~/.local/fish/config.fish ]
+  . ~/.local/fish/config.fish
 end

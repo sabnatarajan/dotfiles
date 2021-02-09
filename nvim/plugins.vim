@@ -29,6 +29,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'unblevable/quick-scope'
 Plug 'vim-utils/vim-man'
+Plug 'fatih/vim-go'
 
 " Themes
 Plug 'gruvbox-community/gruvbox'

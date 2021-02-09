@@ -16,10 +16,8 @@ abbr rmrf "rm -rfi"
 abbr vi  nvim
 abbr vim nvim
 
-
 # MISC
 abbr cc clear
-abbr k  kubectl
 abbr dc docker-compose
 abbr lg lazygit
 

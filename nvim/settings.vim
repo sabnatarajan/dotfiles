@@ -23,6 +23,7 @@ set splitbelow                  " Horizontal splits default to below
 set splitright                  " Vertical splits default to right
 set showtabline=2               " Always show tabs
 set laststatus=2                " Always display status line
+set scrolloff=8                 " Start scrolling before reaching the end
 set noswapfile
 set nobackup
 set nowritebackup

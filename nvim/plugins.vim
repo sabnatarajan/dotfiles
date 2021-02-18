@@ -19,7 +19,7 @@ Plug 'liuchengxu/vim-which-key'    " Keybinding helper
 Plug 'liuchengxu/vista.vim'        " View and search LSP symbols, tags
 Plug 'mbbill/undotree'
 Plug 'mhinz/vim-startify'
-Plug 'neoclide/coc.nvim'           " Completion
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }           " Completion
 Plug 'preservim/nerdtree'          " File tree
 Plug 'Xuyuanp/nerdtree-git-plugin' " Git plugin for NERDTree
 Plug 'ryanoasis/vim-devicons'      " Icons for vim plugins

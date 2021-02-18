@@ -1,6 +1,7 @@
 let g:coc_global_extensions = [
   \ 'coc-explorer',
   \ 'coc-java',
+  \ 'coc-java-debug',
   \ 'coc-json',
   \ 'coc-pairs',
   \ 'coc-python',

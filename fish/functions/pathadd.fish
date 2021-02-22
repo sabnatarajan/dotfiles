@@ -1,4 +1,4 @@
-function add_path -d "Add a directory to the path if it doesn't exist"
+function pathadd -d "Add a directory to the path if it doesn't exist"
   if test (count $argv) = 0
     echo "Must supply a path"
   else

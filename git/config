@@ -6,3 +6,6 @@
   gpgsign = true
 [core]
   excludesFile = ~/.config/git/ignore
+
+[includeIf "gitdir:~/work/"]
+  path = ~/work/.config/git/config

@@ -4,3 +4,5 @@
   signingkey = 7561E764BECC583B
 [commit]
   gpgsign = true
+[core]
+  excludesFile = ~/.config/git/ignore

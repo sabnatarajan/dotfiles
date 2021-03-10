@@ -1,0 +1,74 @@
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/cask-fonts"
+tap "homebrew/cask-versions"
+tap "homebrew/core"
+tap "jason0x43/homebrew-neovim-nightly"
+
+# Lib
+brew "bzip2"          # Freely available high-quality data compressor
+brew "gnupg"          # GNU Pretty Good Privacy (PGP) package
+brew "hopenpgp-tools" # Command-line tools for OpenPGP-related operations
+brew "openssl@1.1"    # Cryptography and SSL/TLS Toolkit
+brew "pinentry-mac"   # Pinentry for GPG on Mac
+brew "sqlite"         # Command-line interface for SQLite
+brew "zlib"           # General-purpose lossless data-compression library
+
+# Shell Essentials
+brew "bash"                # Bourne-Again SHell, a UNIX command interpreter
+brew "bat"                 # Clone of cat(1) with syntax highlighting and Git integration
+brew "exa"                 # Modern replacement for 'ls'
+brew "fd"                  # Simple, fast and user-friendly alternative to find
+brew "fish"                # User-friendly command-line shell for UNIX-like operating systems
+brew "fzf"                 # Command-line fuzzy finder written in Go
+brew "git"                 # Distributed revision control system
+brew "jq"                  # Lightweight and flexible command-line JSON processor
+brew "neovim", link: false # Ambitious Vim-fork focused on extensibility and agility
+brew "ripgrep"             # Search tool like grep and The Silver Searcher
+brew "starship"            # Cross-shell prompt for astronauts
+brew "tmux"                # Terminal multiplexer
+brew "watch"               # Executes a program periodically, showing output fullscreen
+cask "neovim-nightly"      # [Nightly] Ambitious Vim-fork focused on extensibility and agility
+
+# Dev
+brew "go"    # Open source programming language to build simple/reliable/efficient software
+brew "maven" # Java-based project management
+
+# Shell Tools
+brew "ansible"          # Automate deployment, configuration, and upgrading
+brew "kubectx"          # Tool that can switch between kubectl contexts easily and create aliases
+brew "kubernetes-cli"   # Kubernetes command-line interface
+brew "lazygit"          # Simple terminal UI for git commands
+brew "ncdu"             # NCurses Disk Usage
+brew "nmap"             # Port scanning utility for large networks
+brew "pyenv"            # Python version management
+brew "pyenv-virtualenv" # Pyenv plugin to manage virtualenv
+brew "telnet"           # User interface to the TELNET protocol
+brew "xsv"              # Fast CSV toolkit written in Rust
+brew "ykman"            # Tool for managing your YubiKey configuration
+brew "ykpers"           # YubiKey personalization library and tool
+
+# Apps
+cask "alfred"             # Application launcher and productivity software
+cask "appgate-sdp-client" # Software-defined perimeter for secure network access
+cask "balenaetcher"       # Tool to flash OS images to SD cards & USB drives
+cask "bettertouchtool"    # Tool to customize input devices and automate computer systems
+cask "brave-browser"      # Web browser focusing on privacy
+cask "discord"            # Voice and text chat software
+cask "iina"               # Free and open-source media player
+cask "karabiner-elements" # Keyboard customizer
+cask "qbittorrent"        # Peer to peer Bitorrent client
+cask "slack"              # Team communication and collaboration software
+cask "spotify"            # Music streaming service
+cask "visual-studio-code" # Open-source code editor
+cask "whatsapp"           # Desktop client for WhatsApp
+cask "zoom"               # Video communication and virtual meeting platform
+
+# Fonts
+cask "font-fira-code-nerd-font"
+cask "font-hack-nerd-font"
+
+# Misc
+brew "cmatrix" # Console Matrix
+brew "cowsay"  # Configurable talking characters in ASCII art
+brew "lolcat"  # Rainbows and unicorns in your console!

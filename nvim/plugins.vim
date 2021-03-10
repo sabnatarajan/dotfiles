@@ -9,10 +9,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
 Plug 'airblade/vim-rooter'
 Plug 'airblade/vim-gitgutter'
-Plug 'jremmen/vim-ripgrep'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'junegunn/gv.vim'
+" Plug 'jremmen/vim-ripgrep'
+" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+" Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'justinmk/vim-sneak'
 Plug 'liuchengxu/vim-which-key'    " Keybinding helper
@@ -20,16 +19,20 @@ Plug 'liuchengxu/vista.vim'        " View and search LSP symbols, tags
 Plug 'mbbill/undotree'
 Plug 'mhinz/vim-startify'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }           " Completion
-Plug 'preservim/nerdtree'          " File tree
-Plug 'Xuyuanp/nerdtree-git-plugin' " Git plugin for NERDTree
+" Plug 'preservim/nerdtree'          " File tree
+" Plug 'Xuyuanp/nerdtree-git-plugin' " Git plugin for NERDTree
 Plug 'ryanoasis/vim-devicons'      " Icons for vim plugins
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'        " Better comments
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
-Plug 'unblevable/quick-scope'
+Plug 'unblevable/quick-scope'      " highlight words when using f/t motions
 Plug 'vim-utils/vim-man'
 Plug 'fatih/vim-go'
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'neovim/nvim-lspconfig'
 
 " Themes
 Plug 'gruvbox-community/gruvbox'
@@ -38,3 +41,7 @@ Plug 'phanviet/vim-monokai-pro'
 Plug 'joshdick/onedark.vim'
 
 call plug#end()
+
+lua << EOF
+require'lspconfig'.pyright.setup{}
+EOF

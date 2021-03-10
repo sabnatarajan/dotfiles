@@ -6,9 +6,21 @@ imap <C-l> <C-w>l
 " g Leader key
 let mapleader=" "
 
+" Reload config
+nnoremap <leader>rc :so ~/.config/nvim/init.vim<cr>
+
 " FZF
-nnoremap <C-P> :Files<CR>
-nnoremap <leader>p :FZF<CR>
+" nnoremap <C-P> :Files<CR>
+" nnoremap <leader>p :FZF<CR>
+
+" Telescope
+nnoremap <C-i> :Telescope find_files<cr>
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+nnoremap <leader>fgf <cmd>Telescope git_files<cr>
+nnoremap <leader>t <cmd>Telescope file_browser<cr>
 
 " Better indenting
 vnoremap < <gv
@@ -48,4 +60,4 @@ nnoremap <silent> <M-h>    :vertical resize -2<CR>
 nnoremap <silent> <M-l>    :vertical resize +2<CR>
 
 " NERD Tree
-nnoremap <leader>t :NERDTreeToggle<CR>
+" nnoremap <leader>t :NERDTreeToggle<CR>

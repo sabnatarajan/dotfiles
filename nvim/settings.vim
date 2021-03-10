@@ -12,7 +12,7 @@ set expandtab                   " Convert tabs to spaces
 set smartindent                 " Smart indentation
 set autoindent                  " Auto indentation
 set nu                          " Line numbers
-set rnu                         " Relative line numbers
+set nornu                       " Relative line numbers
 set smartcase                   " Case sensitive search if pattern has uppercase
 set noshowmode                  " Modes are not shown (-- INSERT --)
 set cursorline                  " Enable highlighting of current line

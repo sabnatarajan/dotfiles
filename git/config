@@ -8,8 +8,8 @@
   excludesFile = ~/.config/git/ignore
 [init]
   defaultBranch = main
-[url "git@sn"]
-  insteadOf = "https://github.com"
+[url "git@sn:"]
+  insteadOf = "https://github.com/"
 
 [includeIf "gitdir:~/work/"]
   path = ~/work/.config/git/config

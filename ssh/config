@@ -1,0 +1,11 @@
+IgnoreUnknown AddKeysToAgent,UseKeychain
+Include ~/.local/ssh/config
+
+Host sn
+  HostName github.com
+  User git
+  IdentitiesOnly yes
+  IdentityFile ~/.ssh/id_yubikey.pub
+
+Host *
+  User sab

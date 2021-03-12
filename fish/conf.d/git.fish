@@ -26,10 +26,13 @@ abbr gcxn  "git commit -v --amend --no-edit"
 
 # Log
 abbr gl    "git log"
+abbr gls   "git log --show-signature"
 abbr glo   "git log --oneline --decorate"
 abbr glog  "git log --oneline --decorate --graph"
 abbr glol  "git log --graph --pretty=\"%Cred%h%Creset -%C(auto)%d%Creset %s%Cgreen (%cr) %C(bold blue)<%an>%Creset\""
+abbr glols "git log --graph --pretty=\"%Cred%h%Creset -%C(auto)%d%Creset %s%Cgreen (%cr) %C(bold blue)<%an>%C(cyan) <Sign: %G?>%Creset\""
 abbr glola "git log --graph --pretty=\"%Cred%h%Creset -%C(auto)%d%Creset %s%Cgreen (%cr) %C(bold blue)<%an>%Creset\" --all"
+
 
 # Diff
 abbr gd   "git diff"

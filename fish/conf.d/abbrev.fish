@@ -1,7 +1,9 @@
 # DIRECTORY
-abbr l  "ls -lh"
-abbr la "ls -lAh"
-abbr l1 "ls -1"
+abbr l   "exa --long --header --grid"
+abbr la  "exa --long --header --grid --all"
+abbr l1  "exa -1"
+abbr lt  "exa --tree"
+abbr llt "exa --long --tree"
 
 abbr ..    "cd .."
 abbr ...   "cd ../.."

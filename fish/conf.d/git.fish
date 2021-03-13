@@ -1,5 +1,6 @@
 abbr g    git
 abbr ga   "git add"
+abbr gap  "git add --patch"
 abbr gs   "git status"
 abbr gf   "git fetch"
 abbr gp   "git push"

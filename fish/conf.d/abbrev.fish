@@ -19,9 +19,10 @@ abbr vi  nvim
 abbr vim nvim
 
 # MISC
-abbr cc clear
-abbr dc docker-compose
-abbr lg lazygit
+abbr cat bat
+abbr cc  clear
+abbr dc  docker-compose
+abbr lg  lazygit
 
 # Change config files
 abbr cabbrev "$EDITOR ~/.config/fish/conf.d/abbrev.fish"

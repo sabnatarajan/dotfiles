@@ -35,12 +35,18 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'neovim/nvim-lspconfig'
 
 " Themes
+Plug 'chriskempson/base16-vim'
 Plug 'gruvbox-community/gruvbox'
 Plug 'vim-airline/vim-airline'
 Plug 'phanviet/vim-monokai-pro'
 Plug 'joshdick/onedark.vim'
 
 call plug#end()
+
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
 
 lua << EOF
 require'lspconfig'.pyright.setup{}

@@ -1,6 +1,7 @@
 # DIRECTORY
-abbr l   "exa --long --header --grid"
-abbr la  "exa --long --header --grid --all"
+abbr l   "exa --long --header"
+abbr la  "exa --long --header --all"
+abbr lag "exa --long --header --all --grid"
 abbr l1  "exa -1"
 abbr lt  "exa --tree"
 abbr llt "exa --long --tree"
@@ -25,6 +26,8 @@ abbr dc  docker-compose
 abbr lg  lazygit
 
 # Change config files
-abbr cabbrev "$EDITOR ~/.config/fish/conf.d/abbrev.fish"
-abbr cfish   "$EDITOR ~/.config/fish/config.fish"
-abbr cvi     "$EDITOR ~/.config/nvim"
+abbr cdot     "$EDITOR ~/git/dotfiles"
+abbr dotfiles "cd ~/git/dotfiles"
+abbr cabbrev  "$EDITOR ~/.config/fish/conf.d/abbrev.fish"
+abbr cfish    "$EDITOR ~/.config/fish/config.fish"
+abbr cvi      "$EDITOR ~/.config/nvim"

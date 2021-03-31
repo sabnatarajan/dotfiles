@@ -38,6 +38,7 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'chriskempson/base16-vim'
 Plug 'gruvbox-community/gruvbox'
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'phanviet/vim-monokai-pro'
 Plug 'joshdick/onedark.vim'
 

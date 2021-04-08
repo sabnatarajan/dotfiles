@@ -6,6 +6,7 @@
   gpgsign = true
 [core]
   excludesFile = ~/.config/git/ignore
+  pager = delta
 [init]
   defaultBranch = main
 

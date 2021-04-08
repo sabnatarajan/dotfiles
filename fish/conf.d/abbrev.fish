@@ -20,10 +20,11 @@ abbr vi  nvim
 abbr vim nvim
 
 # MISC
-abbr cat bat
-abbr cc  clear
-abbr dc  docker-compose
-abbr lg  lazygit
+abbr cat  bat
+abbr catp bat -p
+abbr cc   clear
+abbr dc   docker-compose
+abbr lg   lazygit
 
 # Change config files
 abbr cdot     "$EDITOR ~/git/dotfiles"

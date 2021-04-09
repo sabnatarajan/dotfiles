@@ -38,6 +38,3 @@ set colorcolumn=80
 highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 set updatetime=300              " Faster completion
-
-let g:python_host_prog = '$HOME/.config/pyenv/versions/nvim2/bin/python'
-let g:python3_host_prog = '$HOME/.config/pyenv/versions/nvim3/bin/python'

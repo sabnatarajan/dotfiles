@@ -125,6 +125,7 @@ keymap('n', '<leader>ff', '<cmd>lua require("telescope.builtin").find_files()<cr
 keymap('n', '<leader>fg', '<cmd>lua require("telescope.builtin").live_grep()<cr>')
 keymap('n', '<leader>fb', '<cmd>lua require("telescope.builtin").buffers()<cr>')
 keymap('n', '<leader>fh', '<cmd>lua require("telescope.builtin").help_tags()<cr>')
+keymap('n', '<leader>ft', '<cmd>lua require("telescope.builtin").file_browser()<cr>')
 
 --------
 -- LSP 

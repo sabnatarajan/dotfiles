@@ -45,6 +45,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/sab/.local/share/nvim/site/pack/packer/start/galaxyline.nvim"
   },
+  ["glow.nvim"] = {
+    loaded = true,
+    path = "/Users/sab/.local/share/nvim/site/pack/packer/start/glow.nvim"
+  },
   ["lsp_extensions.nvim"] = {
     loaded = true,
     path = "/Users/sab/.local/share/nvim/site/pack/packer/start/lsp_extensions.nvim"

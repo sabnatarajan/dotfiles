@@ -46,6 +46,8 @@ require('packer').startup {
       config = function() require'statusline' end,
       requires = {'kyazdani42/nvim-web-devicons', opt = true}
     }
+
+    use 'npxbr/glow.nvim'
   end
 }
 
@@ -163,3 +165,9 @@ keymap('n', '<leader>gd',    '<cmd>lua vim.lsp.buf.declaration()<CR>', silent)
 ---------------
 local ts = require 'nvim-treesitter.configs'
 ts.setup {ensure_installed = 'maintained', highlight = {enable = true}}
+
+
+----------------------
+--  Glow (Markdown)
+----------------------
+keymap('n', '<leader>md', ':Glow<cr>')

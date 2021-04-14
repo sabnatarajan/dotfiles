@@ -48,6 +48,7 @@ require('packer').startup {
     }
 
     use 'npxbr/glow.nvim'
+    use 'junegunn/vim-easy-align'
   end
 }
 

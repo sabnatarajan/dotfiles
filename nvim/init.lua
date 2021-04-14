@@ -95,7 +95,7 @@ o.switchbuf = 'usetab,newtab'
 g.switchbuf = 'usetab,newtab'
 o.splitright = true
 o.splitbelow = true
-o.shell="/bin/zsh"
+o.shell="/bin/bash"
 g.clipboard = "unnamedplus"
 
 cmd('syntax enable')

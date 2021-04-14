@@ -91,11 +91,12 @@ b.shiftwidth = 2       --
 b.swapfile = false
 o.backup = false
 o.writebackup = false
-o.switchbuf = 'newtab'
-g.switchbuf = 'newtab'
+o.switchbuf = 'usetab,newtab'
+g.switchbuf = 'usetab,newtab'
 o.splitright = true
 o.splitbelow = true
 o.shell="/bin/zsh"
+g.clipboard = "unnamedplus"
 
 cmd('syntax enable')
 cmd('filetype plugin indent on')

@@ -34,8 +34,6 @@ require('packer').startup {
       requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
     }
 
-    use 'fatih/vim-go'          -- Go
-
     use 'tpope/vim-commentary'  -- comment stuff out
     use 'tpope/vim-fugitive'    -- A Git wrapper so awesome, it should be illegal
     use 'tpope/vim-surround'    -- quoting/parenthesizing made simple
@@ -143,6 +141,7 @@ end
 
 lsp.rust_analyzer.setup({ on_attach=on_attach })
 lsp.pyright.setup({ on_attach=on_attach })
+lsp.gopls.setup({ on_attach=on_attach })
 
 local silent = { silent = true }
 local expr = { expr = true }

@@ -32,7 +32,7 @@ abbr cdot     "$EDITOR ~/git/dotfiles"
 abbr dotfiles "cd ~/git/dotfiles"
 abbr cabbrev  "$EDITOR ~/.config/fish/conf.d/abbrev.fish"
 abbr cfish    "$EDITOR ~/.config/fish/config.fish"
-abbr cvi      "$EDITOR ~/.config/nvim"
+abbr cvi      "$EDITOR ~/.config/nvim/init.lua"
 
 # Git
 abbr g    git

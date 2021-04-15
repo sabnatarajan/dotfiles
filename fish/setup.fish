@@ -53,6 +53,11 @@ abbr gclo "git clone"
 abbr gr   "git rev-parse --show-toplevel"
 abbr gre  "git restore"
 abbr grs  "git reset"
+abbr gw   "git worktree"
+abbr gwl  "git worktree list"
+abbr gwa  "git worktree add"
+abbr gwab "git worktree add -b"
+abbr gwm  "git worktree move"
 
 # Commits
 abbr gc    "git commit -v"

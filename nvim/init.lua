@@ -47,6 +47,7 @@ require('packer').startup {
 
     use 'npxbr/glow.nvim'
     use 'junegunn/vim-easy-align'
+
     use 'blankname/vim-fish'     -- Syntax highlighting for Fish
   end
 }
@@ -98,6 +99,7 @@ o.splitright = true
 o.splitbelow = true
 o.shell="/bin/bash"
 g.clipboard = "unnamedplus"
+o.clipboard = "unnamedplus"
 
 cmd('syntax enable')
 cmd('filetype plugin indent on')

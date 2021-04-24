@@ -1,3 +1,6 @@
+#Fish
+abbr setl "set -l"
+
 # DIRECTORY
 abbr -a -- - 'cd -'
 abbr l   "exa --long --header"

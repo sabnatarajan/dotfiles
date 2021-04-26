@@ -47,6 +47,7 @@ require('packer').startup {
 
     use 'npxbr/glow.nvim'
     use 'junegunn/vim-easy-align'
+    use 'junegunn/goyo.vim'
 
     use 'blankname/vim-fish'     -- Syntax highlighting for Fish
   end

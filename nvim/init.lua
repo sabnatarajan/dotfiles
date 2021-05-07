@@ -25,7 +25,6 @@ require('packer').startup {
     use 'neovim/nvim-lspconfig'         -- Common configs for LSP client
     use 'nvim-lua/lsp_extensions.nvim'  -- Extensions for built-in LSP
     use 'nvim-lua/completion-nvim'      -- Autocomplete
-
     use 'nvim-treesitter/nvim-treesitter'
     
     -- Telescope (Fuzzy finder, file browser)

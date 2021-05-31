@@ -22,7 +22,7 @@ end
 # pyenv (asdf still uses pyenv under the hood)
 set -gx PYTHON_BUILD_ARIA2_OPTS "-x 10 -k 1M" # Use aria2c when downloading
 # asdf
-test (which asdf); and source $HOME/.asdf/asdf.fish
+type -f asdf; and source $HOME/.asdf/asdf.fish
 
 # Local config
 # if test -f ~/.local/fish/config.fish

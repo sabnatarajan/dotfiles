@@ -25,6 +25,4 @@ set -gx PYTHON_BUILD_ARIA2_OPTS "-x 10 -k 1M" # Use aria2c when downloading
 type -f asdf 2>1 1>/dev/null; and source $HOME/.asdf/asdf.fish
 
 # Local config
-# if test -f ~/.local/fish/config.fish
-#   . ~/.local/fish/config.fish
-# end
+test -f ~/.local/fish/config.fish; and source ~/.local/fish/config.fish

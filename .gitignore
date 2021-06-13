@@ -1,6 +1,7 @@
 # VIM
 nvim/autoload/plugged/**/*
 nvim/.netrwhist
+nvim/plugin/packer_compiled.vim
 
 .zcompdump*
 .DS_Store

@@ -6,10 +6,13 @@ Host sn
   User git
   IdentitiesOnly yes
   IdentityFile ~/.ssh/yubikey_rsa.pub
+  AddKeysToAgent yes
+  IdentitiesOnly yes
 
 Host gl
   HostName gitlab.com
   User git
+  AddKeysToAgent yes
   IdentitiesOnly yes
   IdentityFile ~/.ssh/yubikey_rsa.pub
 

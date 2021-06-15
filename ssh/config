@@ -16,5 +16,15 @@ Host gl
   IdentitiesOnly yes
   IdentityFile ~/.ssh/yubikey_rsa.pub
 
+Host 10.40.60.5*
+  User ubuntu
+  IdentitiesOnly yes
+  IdentityFile ~/.ssh/yubikey_rsa.pub
+
+Host 10.40.60.4*
+  User ubuntu
+  IdentitiesOnly yes
+  IdentityFile ~/.ssh/yubikey_rsa.pub
+
 Host *
   User sab

@@ -182,7 +182,4 @@ hc set_monitors 1440x2560+0+500 1920x1080+1440+00 1920x1080+1440+1080
 # find the panel
 panel=~/.config/herbstluftwm/panel.sh
 [ -x "$panel" ] || panel=/etc/xdg/herbstluftwm/panel.sh
-for monitor in $(hc list_monitors | cut -d: -f1) ; do
-    # start it on each monitor
-    "$panel" "$monitor" &
-done
+"$panel" &

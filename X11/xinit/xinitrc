@@ -1,3 +1,6 @@
 xset r rate 250 80
+
+numlockx &
 picom & 
+
 exec herbstluftwm

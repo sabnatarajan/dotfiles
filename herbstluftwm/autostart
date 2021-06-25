@@ -114,9 +114,9 @@ hc keybind $Mod-i jumpto urgent
 hc attr theme.tiling.reset 1
 hc attr theme.floating.reset 1
 hc set frame_border_active_color '#222222cc'
-hc set frame_border_normal_color '#10101010'
-hc set frame_bg_normal_color '#56565656'
-hc set frame_bg_active_color '#343434'
+hc set frame_border_normal_color '#101010cc'
+hc set frame_bg_normal_color '#565656aa'
+hc set frame_bg_active_color '#345F0Caa'
 hc set frame_border_width 1
 hc set always_show_frame on
 hc set frame_bg_transparent on
@@ -127,9 +127,9 @@ hc attr theme.title_height 15
 hc attr theme.title_font 'Dejavu Sans:pixelsize=12'  # example using Xft
 # hc attr theme.title_font '-*-fixed-medium-r-*-*-13-*-*-*-*-*-*-*'
 hc attr theme.padding_top 2  # space below the title's baseline (i.e. text depth)
-hc attr theme.active.color '#343434'
+hc attr theme.active.color '#345F0Cef'
 hc attr theme.title_color '#ffffff'
-hc attr theme.normal.color '#32323232'
+hc attr theme.normal.color '#323232dd'
 hc attr theme.urgent.color '#7811A1dd'
 hc attr theme.normal.title_color '#898989'
 hc attr theme.inner_width 1

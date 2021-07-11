@@ -229,7 +229,7 @@ ramp-signal-foreground = ${colors.foreground-alt}
 [module/eth]
 type      = internal/network
 interface = enp37s0d1
-interval  = 3.0
+interval  = 0.5
 
 format-connected = <label-connected>
 label-connected  = %upspeed% | %downspeed%

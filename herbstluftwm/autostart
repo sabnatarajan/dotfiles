@@ -64,7 +64,7 @@ hc keybind $Mod-Shift-Up      resize up +$resizestep
 hc keybind $Mod-Shift-Right   resize right +$resizestep
 
 # tags
-tag_names=( chat dev www term media misc)
+tag_names=( chat dev www term media misc )
 tag_keys=( {1..6} 0 )
 
 hc rename default "${tag_names[0]}" || true
@@ -92,10 +92,12 @@ hc keybind $Mod-p pseudotile toggle
 # The following cycles through the available layouts within a frame, but skips
 # layouts, if the layout change wouldn't affect the actual window positions.
 # I.e. if there are two windows within a frame, the grid layout is skipped.
-hc keybind $Mod-shift-space                                                           \
-            or , and . compare tags.focus.curframe_wcount = 2                   \
-                     . cycle_layout +1 vertical horizontal max vertical grid    \
-               , cycle_layout +1
+# hc keybind $Mod-shift-p                                                           \
+#             or , and . compare tags.focus.curframe_wcount = 2                   \
+#                      . cycle_layout +1 vertical horizontal max vertical grid    \
+#                , cycle_layout +1
+
+hc keybind $Mod-Shift-l cycle_layout
 
 # mouse
 hc mouseunbind --all
@@ -104,7 +106,7 @@ hc mousebind $Mod-Button2 zoom
 hc mousebind $Mod-Button3 resize
 
 # focus
-hc keybind $Mod-BackSpace   cycle_monitor
+hc keybind $Mod-m  	    cycle_monitor
 hc keybind $Mod-Tab         cycle_all +1
 hc keybind $Mod-Shift-Tab   cycle_all -1
 hc keybind $Mod-c cycle

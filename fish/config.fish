@@ -1,8 +1,8 @@
 # Fish settings
 fish_vi_key_bindings  # vi-mode
 
-set -U EDITOR nvim
-set -U VISUAL nvim
+set -Ux EDITOR nvim
+set -Ux VISUAL nvim
 
 set -Ux STARSHIP_CONFIG ~/.config/starship/starship.toml
 starship init fish | source

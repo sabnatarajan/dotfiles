@@ -97,7 +97,7 @@ hc keybind $Mod-p pseudotile toggle
 #                      . cycle_layout +1 vertical horizontal max vertical grid    \
 #                , cycle_layout +1
 
-hc keybind $Mod-Shift-l cycle_layout
+hc keybind $Mod-Control-p cycle_layout
 
 # mouse
 hc mouseunbind --all

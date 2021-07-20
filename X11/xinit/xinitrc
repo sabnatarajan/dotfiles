@@ -1,5 +1,5 @@
 xset r rate 200 100 &
-
+xmodmap ~/.config/X11/xinit/xmodmap &
 numlockx &
 picom & 
 

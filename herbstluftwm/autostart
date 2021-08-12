@@ -22,7 +22,7 @@ hc keybind $Mod-Shift-q quit
 hc keybind $Mod-Shift-r reload
 hc keybind $Mod-x close
 hc keybind $Mod-Return spawn "${TERMINAL:-alacritty}" # use your $TERMINAL with xterm as fallback
-hc keybind $Mod-space spawn dmenu_run
+hc keybind $Mod-space spawn rofi -show run
 
 # basic movement in tiling and floating mode
 # focusing clients

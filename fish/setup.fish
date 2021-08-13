@@ -118,3 +118,6 @@ abbr kdd  kubectl delete deploy
 abbr kds  kubectl delete svc
 abbr kdi  kubectl delete ing
 abbr kdn  kubectl delete ns
+
+# Herbstluftwm
+abbr hc herbstclient

@@ -162,7 +162,7 @@ hc unrule -F
 hc rule class="firefox" tag="www"     # all firefox windows in the www tag
 hc rule class="Alacritty" tag="term"  # all alacritty windows in the term tag
 hc rule class="discord" tag="chat" focus=off  # all discord windows in the chat tag
-hc rule class="slack" tag="chat" focus=off    # all slack windows in the chat tag
+hc rule class="Slack" tag="chat" focus=off    # all slack windows in the chat tag
 hc rule focus=on # normally focus new clients
 hc rule floatplacement=smart
 #hc rule focus=off # normally do not focus new clients

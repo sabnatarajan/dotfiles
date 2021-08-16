@@ -155,7 +155,6 @@ hc set frame_padding 0
 hc set smart_window_surroundings off
 hc set smart_frame_surroundings on
 hc set mouse_recenter_gap 0
-hc set default_frame_layout horizontal
 
 # rules
 hc unrule -F
@@ -174,6 +173,7 @@ hc rule windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK|DESKTOP)' manage=off
 
 hc set tree_style '╾│ ├└╼─┐'
 
+hc set default_frame_layout horizontal
 # unlock, just to be sure
 hc unlock
 

@@ -182,6 +182,7 @@ hc unlock
 # or simply:
 bash ~/.screenlayout/3mon.sh
 hc set_monitors 1080x1900+0+20 1920x1060+1080+440 2560x1420+3000+260
+nitrogen --restore
 # hc detect_monitors
 
 # find the panel

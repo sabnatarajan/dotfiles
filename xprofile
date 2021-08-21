@@ -1,6 +1,0 @@
-xset s off
-xset -dpms
-xset s noblank
-
-# Faster key repeat
-xset r rate 250 80

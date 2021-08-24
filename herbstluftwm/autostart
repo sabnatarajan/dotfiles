@@ -63,6 +63,15 @@ hc keybind $Mod-Shift-Down    resize down +$resizestep
 hc keybind $Mod-Shift-Up      resize up +$resizestep
 hc keybind $Mod-Shift-Right   resize right +$resizestep
 
+# volume control
+volume_step=5
+hc keybind XF86AudioMute spawn pamixer --toggle-mute
+hc keybind XF86AudioRaiseVolume spawn pamixer --increase $volume_step
+hc keybind XF86AudioLowerVolume spawn pamixer --decrease $volume_step
+hc keybind XF86AudioPlay spawn playerctl play-pause
+hc keybind XF86AudioNext spawn playerctl next
+hc keybind XF86AudioPrev spawn playerctl previous
+
 # tags
 tag_names=( chat term www dev media misc )
 tag_keys=( {1..6} 0 )

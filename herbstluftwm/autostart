@@ -72,6 +72,9 @@ hc keybind XF86AudioPlay spawn playerctl play-pause
 hc keybind XF86AudioNext spawn playerctl next
 hc keybind XF86AudioPrev spawn playerctl previous
 
+# set default layout before defining tags
+hc set default_frame_layout horizontal
+
 # tags
 tag_names=( chat term www dev media misc )
 tag_keys=( {1..6} 0 )
@@ -182,7 +185,6 @@ hc rule windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK|DESKTOP)' manage=off
 
 hc set tree_style '╾│ ├└╼─┐'
 
-hc set default_frame_layout horizontal
 # unlock, just to be sure
 hc unlock
 

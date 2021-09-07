@@ -1,3 +1,5 @@
+include-file = "~/.config/polybar/colors.ini"
+
 [settings]
 screenchange-reload = true
 compositing-background = over
@@ -10,18 +12,6 @@ compositing-underline = over
 [global/wm]
 margin-top = 0
 margin-bottom = 0
-
-; vim:ft=dosini
-[colors]
-;background = ${xrdb:color0:#222}
-background = #222
-background-alt = #444
-;foreground = ${xrdb:color7:#222}
-foreground = #dfdfdf
-foreground-alt = #555
-primary = #ffb52a
-secondary = #e60053
-alert = #bd2c40
 
 [bar/herbstluftwm]
 monitor      = ${env:MONITOR}

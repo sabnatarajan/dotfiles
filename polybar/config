@@ -23,7 +23,7 @@ primary = #ffb52a
 secondary = #e60053
 alert = #bd2c40
 
-[bar/mainbar-herbstluftwm]
+[bar/herbstluftwm]
 monitor      = ${env:MONITOR}
 width        = 100%
 height       = 20

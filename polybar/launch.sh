@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 
-BAR=default
+if [[ "$#" == "0" ]]; then
+  BAR=default
+else
+  BAR=$1
+fi
 
 # Terminate already running bar instances
 killall -q polybar

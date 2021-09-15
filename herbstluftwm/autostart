@@ -193,8 +193,9 @@ hc unlock
 # do multi monitor setup here, e.g.:
 # hc set_monitors 1280x1024+0+0 1280x1024+1280+0
 # or simply:
-bash ~/.screenlayout/1mon.sh
-hc set_monitors 1920x1060+0+20
+# bash ~/.screenlayout/1mon.sh
+hc detect_monitors
+hc set_monitors 2560x1420+0+20
 nitrogen --restore
 # hc detect_monitors
 

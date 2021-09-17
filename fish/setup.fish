@@ -121,3 +121,15 @@ abbr kdn  kubectl delete ns
 
 # Herbstluftwm
 abbr hc herbstclient
+
+# Nix
+abbr n   nix
+abbr ne  nix-env
+abbr ngc nix-collect-garbage
+abbr nb  nix-build
+abbr nsh nix-shell
+abbr ns  nix-store
+abbr nh  nix-hash
+abbr nch nix-channel
+abbr nd  nix-daemon
+

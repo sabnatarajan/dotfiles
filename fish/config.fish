@@ -22,6 +22,7 @@ and not test (tty) = "/dev/tty1"
   # Adapted from https://unix.stackexchange.com/a/176885/347104
   # Create session 'main' or attach to 'main' if already exists.
   tmux new-session -A -s main
+  gpg-connect-agent updatestartuptty /bye > /dev/null;
 end
 
 ## ASDF Config

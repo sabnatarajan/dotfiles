@@ -1,14 +1,15 @@
 #!/usr/bin/env bash
 
-# this is a simple config for herbstluftwm
-
 hc() {
-    herbstclient "$@"
+  herbstclient "$@"
 }
 
 hc emit_hook reload
 
-xsetroot -solid '#5A8E3A'
+theme="atelier-dune"
+source "$HOME/.config/herbstluftwm/colors/${theme}"
+
+xsetroot -solid $base0B
 
 # remove all existing keybindings
 hc keyunbind --all
@@ -20,9 +21,9 @@ Mod=Mod4   # Use the super key as the main modifier
 
 hc keybind $Mod-Shift-q quit
 hc keybind $Mod-Shift-r reload
-hc keybind $Mod-x close
-hc keybind $Mod-Return spawn "${TERMINAL:-alacritty}" # use your $TERMINAL with xterm as fallback
-hc keybind $Mod-space spawn rofi -show run
+hc keybind $Mod-x       close
+hc keybind $Mod-Return  spawn "${TERMINAL:-alacritty}" # use your $TERMINAL with xterm as fallback
+hc keybind $Mod-space   spawn rofi -show run
 
 # basic movement in tiling and floating mode
 # focusing clients
@@ -56,23 +57,23 @@ hc keybind $Mod-Control-space split explode
 
 # resizing frames and floating clients
 resizestep=0.02
-hc keybind $Mod-Shift-h       resize left +$resizestep
-hc keybind $Mod-Shift-j       resize down +$resizestep
-hc keybind $Mod-Shift-k       resize up +$resizestep
-hc keybind $Mod-Shift-l       resize right +$resizestep
-hc keybind $Mod-Shift-Left    resize left +$resizestep
-hc keybind $Mod-Shift-Down    resize down +$resizestep
-hc keybind $Mod-Shift-Up      resize up +$resizestep
-hc keybind $Mod-Shift-Right   resize right +$resizestep
+hc keybind $Mod-Shift-h     resize left  +$resizestep
+hc keybind $Mod-Shift-j     resize down  +$resizestep
+hc keybind $Mod-Shift-k     resize up    +$resizestep
+hc keybind $Mod-Shift-l     resize right +$resizestep
+hc keybind $Mod-Shift-Left  resize left  +$resizestep
+hc keybind $Mod-Shift-Down  resize down  +$resizestep
+hc keybind $Mod-Shift-Up    resize up    +$resizestep
+hc keybind $Mod-Shift-Right resize right +$resizestep
 
 # volume control
 volume_step=5
-hc keybind XF86AudioMute spawn pactl set-sink-mute 0 toggle
+hc keybind XF86AudioMute        spawn pactl set-sink-mute 0 toggle
 hc keybind XF86AudioRaiseVolume spawn pactl set-sink-volume 0 +$volume_step%
 hc keybind XF86AudioLowerVolume spawn pactl set-sink-volume 0 -$volume_step%
-hc keybind XF86AudioPlay spawn playerctl play-pause
-hc keybind XF86AudioNext spawn playerctl next
-hc keybind XF86AudioPrev spawn playerctl previous
+hc keybind XF86AudioPlay        spawn playerctl play-pause
+hc keybind XF86AudioNext        spawn playerctl next
+hc keybind XF86AudioPrev        spawn playerctl previous
 
 # set default layout before defining tags
 hc set default_frame_layout horizontal
@@ -96,13 +97,13 @@ hc keybind $Mod-period use_index +1 --skip-visible
 hc keybind $Mod-comma  use_index -1 --skip-visible
 
 # layouting
-hc keybind $Mod-q remove
-hc keybind $Mod-s floating toggle
-hc keybind $Mod-f fullscreen toggle
-hc keybind $Mod-Shift-f set_attr clients.focus.floating toggle
-hc keybind $Mod-Shift-m set_attr clients.focus.minimized true
+hc keybind $Mod-q         remove
+hc keybind $Mod-s         floating toggle
+hc keybind $Mod-f         fullscreen toggle
+hc keybind $Mod-Shift-f   set_attr clients.focus.floating toggle
+hc keybind $Mod-Shift-m   set_attr clients.focus.minimized true
 hc keybind $Mod-Control-m jumpto last-minimized
-hc keybind $Mod-p pseudotile toggle
+hc keybind $Mod-p         pseudotile toggle
 # The following cycles through the available layouts within a frame, but skips
 # layouts, if the layout change wouldn't affect the actual window positions.
 # I.e. if there are two windows within a frame, the grid layout is skipped.
@@ -120,55 +121,54 @@ hc mousebind $Mod-Button2 zoom
 hc mousebind $Mod-Button3 resize
 
 # focus
-hc keybind $Mod-m  	    cycle_monitor
-hc keybind $Mod-Tab         cycle_all +1
-hc keybind $Mod-Shift-Tab   cycle_all -1
-hc keybind $Mod-c cycle
+hc keybind $Mod-m         cycle_monitor
+hc keybind $Mod-Tab       cycle_all +1
+hc keybind $Mod-Shift-Tab cycle_all -1
+hc keybind $Mod-c         cycle
 
 # theme
-hc attr theme.tiling.reset 1
-hc attr theme.floating.reset 1
-hc set frame_border_active_color '#222222cc'
-hc set frame_border_normal_color '#101010cc'
-hc set frame_bg_normal_color '#565656aa'
-hc set frame_bg_active_color '#345F0Caa'
-hc set frame_border_width 1
-hc set always_show_frame on
-hc set frame_bg_transparent on
-hc set frame_transparent_width 5
-hc set frame_gap 4
+hc attr theme.tiling.reset        1
+hc attr theme.floating.reset      1
+hc set  frame_border_active_color $base05
+hc set  frame_border_normal_color $base05
+hc set  frame_bg_normal_color     $base03
+hc set  frame_bg_active_color     $base03
+hc set  frame_border_width        1
+hc set  always_show_frame         on
+hc set  frame_bg_transparent      on
+hc set  frame_transparent_width   5
+hc set  frame_gap                 4
 
-hc attr theme.title_height 15
 hc attr theme.title_font 'Dejavu Sans:pixelsize=12'  # example using Xft
 # hc attr theme.title_font '-*-fixed-medium-r-*-*-13-*-*-*-*-*-*-*'
-hc attr theme.padding_top 2  # space below the title's baseline (i.e. text depth)
-hc attr theme.active.color '#345F0Cef'
-hc attr theme.title_color '#ffffff'
-hc attr theme.normal.color '#323232dd'
-hc attr theme.urgent.color '#7811A1dd'
-hc attr theme.normal.title_color '#898989'
-hc attr theme.inner_width 1
-hc attr theme.inner_color black
-hc attr theme.border_width 3
+hc attr theme.title_height          15
+hc attr theme.padding_top           2
+hc attr theme.active.color          $base01
+hc attr theme.title_color           $base07
+hc attr theme.normal.color          $base01
+hc attr theme.urgent.color          $base08
+hc attr theme.normal.title_color    $base07
+hc attr theme.inner_width           1
+hc attr theme.inner_color           $base00
+hc attr theme.border_width          3
 hc attr theme.floating.border_width 4
-hc attr theme.floating.outer_width 1
-hc attr theme.floating.outer_color black
-hc attr theme.active.inner_color '#789161'
-hc attr theme.urgent.inner_color '#9A65B0'
-hc attr theme.normal.inner_color '#606060'
+hc attr theme.floating.outer_width  1
+hc attr theme.floating.outer_color  $base00
+hc attr theme.active.inner_color    $base00
+hc attr theme.urgent.inner_color    $base08
+hc attr theme.normal.inner_color    $base00
 # copy inner color to outer_color
 for state in active urgent normal ; do
     hc substitute C theme.${state}.inner_color \
         attr theme.${state}.outer_color C
 done
 hc attr theme.active.outer_width 1
-hc attr theme.background_color '#141414'
-
-hc set window_gap 0
-hc set frame_padding 0
+hc attr theme.background_color   $base01
+hc set window_gap                0
+hc set frame_padding             0
 hc set smart_window_surroundings off
-hc set smart_frame_surroundings on
-hc set mouse_recenter_gap 0
+hc set smart_frame_surroundings  on
+hc set mouse_recenter_gap        0
 
 # rules
 hc unrule -F

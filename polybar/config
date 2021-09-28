@@ -44,7 +44,7 @@ font-0 = FiraCode Nerd Font:pixelsize=10;1
 
 modules-left   = powermenu ewmh
 modules-center = xwindow
-modules-right  = temperature cpu memory eth volume date
+modules-right  = spotify prev play next temperature cpu memory eth volume date
 
 tray-position    = right
 tray-padding     = 0

@@ -140,7 +140,7 @@ hc set  frame_gap                 4
 
 hc attr theme.title_font 'FiraCode Nerd Font:pixelsize=12'  # example using Xft
 # hc attr theme.title_font '-*-fixed-medium-r-*-*-13-*-*-*-*-*-*-*'
-hc attr theme.title_height          15
+hc attr theme.title_height          0
 hc attr theme.padding_top           2
 hc attr theme.active.color          $base01
 hc attr theme.title_color           $base07

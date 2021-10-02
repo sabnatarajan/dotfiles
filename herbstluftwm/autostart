@@ -129,40 +129,41 @@ hc keybind $Mod-c         cycle
 hc attr theme.tiling.reset        1
 hc attr theme.floating.reset      1
 hc set  frame_border_active_color $base05
-hc set  frame_border_normal_color $base05
-hc set  frame_bg_normal_color     $base03
-hc set  frame_bg_active_color     $base03
-hc set  frame_border_width        1
-hc set  always_show_frame         on
+hc set  frame_border_normal_color $base01
+hc set  frame_bg_active_color     $base05
+hc set  frame_bg_normal_color     $base01
+hc set  frame_border_width        2
+hc set  always_show_frame         off
 hc set  frame_bg_transparent      on
-hc set  frame_transparent_width   5
-hc set  frame_gap                 4
+hc set  frame_transparent_width   2
+hc set  frame_gap                 2
 
 hc attr theme.title_font 'FiraCode Nerd Font:pixelsize=12'  # example using Xft
-# hc attr theme.title_font '-*-fixed-medium-r-*-*-13-*-*-*-*-*-*-*'
+hc attr theme.background_color      $base00
+hc attr theme.border_width          0
 hc attr theme.title_height          0
+hc attr theme.title_color           $base05
 hc attr theme.padding_top           2
-hc attr theme.active.color          $base01
-hc attr theme.title_color           $base07
+hc attr theme.padding_bottom        2
+hc attr theme.color                 $base04
+hc attr theme.active.color          $base05
 hc attr theme.normal.color          $base01
 hc attr theme.urgent.color          $base08
-hc attr theme.normal.title_color    $base07
+hc attr theme.normal.title_color    $base05
 hc attr theme.inner_width           1
 hc attr theme.inner_color           $base00
-hc attr theme.border_width          3
-hc attr theme.floating.border_width 4
-hc attr theme.floating.outer_width  1
+hc attr theme.floating.border_width 2
+hc attr theme.floating.outer_width  2
 hc attr theme.floating.outer_color  $base00
-hc attr theme.active.inner_color    $base00
+hc attr theme.active.inner_color    $base05
 hc attr theme.urgent.inner_color    $base08
-hc attr theme.normal.inner_color    $base00
+hc attr theme.normal.inner_color    $base01
 # copy inner color to outer_color
 for state in active urgent normal ; do
     hc substitute C theme.${state}.inner_color \
         attr theme.${state}.outer_color C
 done
-hc attr theme.active.outer_width 1
-hc attr theme.background_color   $base01
+hc attr theme.active.outer_width 2
 hc set window_gap                0
 hc set frame_padding             0
 hc set smart_window_surroundings off
@@ -196,7 +197,6 @@ hc unlock
 hc detect_monitors
 hc set_monitors 2560x1420+0+20
 nitrogen --restore
-# hc detect_monitors
 
 # find the panel
 panel=~/.config/polybar/launch.sh

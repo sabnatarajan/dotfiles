@@ -43,6 +43,7 @@ require('packer').startup {
       'akinsho/bufferline.nvim',
       requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     }
+    use 'lukas-reineke/indent-blankline.nvim'
 
     use 'npxbr/glow.nvim'
     use 'junegunn/vim-easy-align'

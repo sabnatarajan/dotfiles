@@ -40,6 +40,7 @@ require('packer').startup {
     use 'chriskempson/base16-vim'  -- Base16 themes
     use {
       'shadmansaleh/lualine.nvim',
+      'akinsho/bufferline.nvim',
       requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     }
 
@@ -106,6 +107,7 @@ o.termguicolors = true
 cmd('syntax enable')
 cmd('filetype plugin indent on')
 
+require('bufferline').setup()
 require('lualine').setup()
 ----------------
 -- Keybindings

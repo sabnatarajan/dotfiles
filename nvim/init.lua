@@ -50,7 +50,6 @@ require('packer').startup {
 
     use 'blankname/vim-fish'     -- Syntax highlighting for Fish
 
-    use 'glacambre/firenvim'
   end
 }
 

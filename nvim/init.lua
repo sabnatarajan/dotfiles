@@ -50,6 +50,7 @@ require('packer').startup {
 
     use 'blankname/vim-fish'     -- Syntax highlighting for Fish
 
+    use 'norcalli/nvim-colorizer.lua'
   end
 }
 
@@ -106,6 +107,7 @@ o.termguicolors = true
 cmd('syntax enable')
 cmd('filetype plugin indent on')
 
+require('colorizer').setup()
 require('bufferline').setup()
 require('lualine').setup()
 ----------------

@@ -38,10 +38,9 @@ require('packer').startup {
     use 'tpope/vim-surround'    -- quoting/parenthesizing made simple
 
     use 'chriskempson/base16-vim'  -- Base16 themes
-    use {  -- Lightweight statusline
-      'glepnir/galaxyline.nvim', branch=main,
-      config = function() require'statusline' end,
-      requires = {'kyazdani42/nvim-web-devicons', opt = true}
+    use {
+      'shadmansaleh/lualine.nvim',
+      requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     }
 
     use 'npxbr/glow.nvim'
@@ -102,10 +101,12 @@ o.splitbelow = true
 o.shell="/bin/bash"
 g.clipboard = "unnamedplus"
 o.clipboard = "unnamedplus"
+o.termguicolors = true
 
 cmd('syntax enable')
 cmd('filetype plugin indent on')
 
+require('lualine').setup()
 ----------------
 -- Keybindings
 ----------------

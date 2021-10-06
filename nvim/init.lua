@@ -123,14 +123,14 @@ require('lualine').setup()
 ----------------
 g.mapleader = ' '       -- Set the leader key
  
-keymap('i', '<C-s>', '<Esc>:w<cr>')   -- Ctrl-S as save
-keymap('n', '<C-s>', ':w<cr>')        -- Ctrl-S as save
-keymap('n', '<leader>ww', ':w<cr>')   -- Easy save
-keymap('n', '<leader>qq', ':q<cr>')   -- Easy quit
-keymap('n', '<leader>wq', ':wq<cr>')  -- Easy save+quit
-keymap('n', '<leader>qa', ':qa!<cr>') -- Easy quit without save
-keymap('n', '<leader>rr', ':so ~/.config/nvim/init.lua<cr>') -- Reload config
-keymap('n', '<esc>', ':noh<CR>')      -- Clear highlight after search
+keymap('i', '<C-s>', '<Esc>:w<CR>')   -- Ctrl-S as save
+keymap('n', '<C-s>', ':w<CR>')        -- Ctrl-S as save
+keymap('n', '<leader>ww', ':w<CR>')   -- Easy save
+keymap('n', '<leader>qq', ':q<CR>')   -- Easy quit
+keymap('n', '<leader>wq', ':wq<CR>')  -- Easy save+quit
+keymap('n', '<leader>qa', ':qa!<CR>') -- Easy quit without save
+keymap('n', '<leader>rr', ':so ~/.config/nvim/init.lua<CR>') -- Reload config
+keymap('n', '<esc>', ':noh<CR>', { silent=true })      -- Clear highlight after search
 
 -- Fugitive
 keymap('n', '<leader>gg', ':topleft Git<CR>')  -- Open Fugitive
@@ -152,13 +152,13 @@ require('telescope').setup{
   }
 }
 require('telescope').load_extension('fzf')
-keymap('n', '<leader>ff', '<cmd>lua require("telescope.builtin").find_files()<cr>')
-keymap('n', '<leader>fr', '<cmd>lua require("telescope.builtin").live_grep()<cr>')
-keymap('n', '<leader>fg', '<cmd>lua require("telescope.builtin").git_files()<cr>')
-keymap('n', '<leader>fb', '<cmd>lua require("telescope.builtin").buffers()<cr>')
-keymap('n', '<leader>fh', '<cmd>lua require("telescope.builtin").help_tags()<cr>')
-keymap('n', '<leader>ft', '<cmd>lua require("telescope.builtin").file_browser()<cr>')
-keymap('n', '<leader>fG', '<cmd>lua require("telescope.builtin").git_commits()<cr>')
+keymap('n', '<leader>ff', '<cmd>lua require("telescope.builtin").find_files()<CR>')
+keymap('n', '<leader>fr', '<cmd>lua require("telescope.builtin").live_grep()<CR>')
+keymap('n', '<leader>fg', '<cmd>lua require("telescope.builtin").git_files()<CR>')
+keymap('n', '<leader>fb', '<cmd>lua require("telescope.builtin").buffers()<CR>')
+keymap('n', '<leader>fh', '<cmd>lua require("telescope.builtin").help_tags()<CR>')
+keymap('n', '<leader>ft', '<cmd>lua require("telescope.builtin").file_browser()<CR>')
+keymap('n', '<leader>fG', '<cmd>lua require("telescope.builtin").git_commits()<CR>')
 
 --------
 -- LSP 
@@ -274,4 +274,4 @@ ts.setup {ensure_installed = 'maintained', highlight = {enable = true}}
 ----------------------
 --  Glow (Markdown)
 ----------------------
-keymap('n', '<leader>md', ':Glow<cr>')
+keymap('n', '<leader>md', ':Glow<CR>')

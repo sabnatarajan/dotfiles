@@ -109,12 +109,11 @@ g.switchbuf = 'usetab,newtab'
 o.splitright = true
 o.splitbelow = true
 o.shell="/bin/bash"
-g.clipboard = "unnamedplus"
-o.clipboard = "unnamedplus"
 o.termguicolors = true
 
 cmd('syntax enable')
 cmd('filetype plugin indent on')
+cmd('set clipboard+=unnamedplus')
 
 require('colorizer').setup()
 require('bufferline').setup()

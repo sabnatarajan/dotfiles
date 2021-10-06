@@ -131,6 +131,7 @@ keymap('n', '<leader>qq', ':q<cr>')   -- Easy quit
 keymap('n', '<leader>wq', ':wq<cr>')  -- Easy save+quit
 keymap('n', '<leader>qa', ':qa!<cr>') -- Easy quit without save
 keymap('n', '<leader>rr', ':so ~/.config/nvim/init.lua<cr>') -- Reload config
+keymap('n', '<esc>', ':noh<CR>')      -- Clear highlight after search
 
 -- Fugitive
 keymap('n', '<leader>gg', ':topleft Git<CR>')  -- Open Fugitive

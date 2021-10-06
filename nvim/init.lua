@@ -144,9 +144,17 @@ keymap('n', '<S-Up>', '<C-w>2>')
 --------------
 -- Telescope 
 --------------
+require('telescope').setup{
+  defaults = {
+    path_display = {
+      "shorten"
+    }
+  }
+}
 require('telescope').load_extension('fzf')
 keymap('n', '<leader>ff', '<cmd>lua require("telescope.builtin").find_files()<cr>')
-keymap('n', '<leader>fg', '<cmd>lua require("telescope.builtin").live_grep()<cr>')
+keymap('n', '<leader>fr', '<cmd>lua require("telescope.builtin").live_grep()<cr>')
+keymap('n', '<leader>fg', '<cmd>lua require("telescope.builtin").git_files()<cr>')
 keymap('n', '<leader>fb', '<cmd>lua require("telescope.builtin").buffers()<cr>')
 keymap('n', '<leader>fh', '<cmd>lua require("telescope.builtin").help_tags()<cr>')
 keymap('n', '<leader>ft', '<cmd>lua require("telescope.builtin").file_browser()<cr>')

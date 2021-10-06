@@ -155,30 +155,54 @@ o.completeopt = 'menuone,noinsert,noselect'
 cmd('set shortmess+=c')
 
 local lsp = require'lspconfig'
-local on_attach = function(client)
-    require'completion'.on_attach(client)
+
+-- Use an on_attach function to only map the following keys
+-- after the language server attaches to the current buffer
+local on_attach = function(client, bufnr)
+  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+
+  -- Enable completion triggered by <c-x><c-o>
+  buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+  local opts = { noremap=true, silent=true }
+
+  -- Code navigation shortcuts
+  -- See `:help vim.lsp.*` for documentation on the below functions
+  buf_set_keymap('n', 'gD',         '<cmd>lua vim.lsp.buf.declaration()<CR>',                                opts)
+  buf_set_keymap('n', 'gd',         '<cmd>lua vim.lsp.buf.definition()<CR>',                                 opts)
+  buf_set_keymap('n', 'K',          '<cmd>lua vim.lsp.buf.hover()<CR>',                                      opts)
+  buf_set_keymap('n', 'gi',         '<cmd>lua vim.lsp.buf.implementation()<CR>',                             opts)
+  buf_set_keymap('n', '<c-k>',      '<cmd>lua vim.lsp.buf.signature_help()<CR>',                             opts)
+  buf_set_keymap('n', 'gr',         '<cmd>lua vim.lsp.buf.references()<CR>',                                 opts)
+  buf_set_keymap('n', '<leader>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>',                       opts)
+  buf_set_keymap('n', '<leader>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>',                    opts)
+  buf_set_keymap('n', '<leader>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
+  buf_set_keymap('n', '<leader>D',  '<cmd>lua vim.lsp.buf.type_definition()<CR>',                            opts)
+  buf_set_keymap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>',                                     opts)
+  buf_set_keymap('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>',                                opts)
+  buf_set_keymap('n', '<leader>F',  '<cmd>lua vim.lsp.buf.formatting()<CR>',                                 opts)
+
+  local expr = { expr = true }
+  keymap('i', '<Tab>', 'pumvisible() ? "\\<C-n>" : "\\<Tab>"', expr)
+  keymap('i', '<S-Tab>', 'pumvisible() ? "\\<C-p>" : "\\<S-Tab>"', expr)
 end
 
-lsp.rust_analyzer.setup({ on_attach=on_attach })
-lsp.pyright.setup({ on_attach=on_attach })
-lsp.gopls.setup({ on_attach=on_attach })
+-- Add additional capabilities supported by nvim-cmp
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
-local silent = { silent = true }
-local expr = { expr = true }
-keymap('i', '<Tab>', 'pumvisible() ? "\\<C-n>" : "\\<Tab>"', expr)
-keymap('i', '<S-Tab>', 'pumvisible() ? "\\<C-p>" : "\\<S-Tab>"', expr)
 
--- Code navigation shortcuts
-keymap('n', '<leader><c-]>', '<cmd>lua vim.lsp.buf.definition()<CR>', silent)
-keymap('n', '<leader>K',     '<cmd>lua vim.lsp.buf.hover()<CR>', silent)
-keymap('n', '<leader>gD',    '<cmd>lua vim.lsp.buf.implementation()<CR>', silent)
-keymap('n', '<leader><c-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', silent)
-keymap('n', '<leader>1gD',   '<cmd>lua vim.lsp.buf.type_definition()<CR>', silent)
-keymap('n', '<leader>gr',    '<cmd>lua vim.lsp.buf.references()<CR>', silent)
-keymap('n', '<leader>g0',    '<cmd>lua vim.lsp.buf.document_symbol()<CR>', silent)
-keymap('n', '<leader>gW',    '<cmd>lua vim.lsp.buf.workspace_symbol()<CR>', silent)
-keymap('n', '<leader>gd',    '<cmd>lua vim.lsp.buf.declaration()<CR>', silent)
-
+-- Use a loop to conveniently call 'setup' on multiple servers and
+-- map buffer local keybindings when the language server attaches
+local servers = { 'pyright', 'rust_analyzer', 'tsserver', 'gopls', 'bashls' }
+for _, server in ipairs(servers) do
+  lsp[server].setup {
+    on_attach = on_attach,
+    flags = {
+      debounce_text_changes = 150,
+    }
+  }
+end
 
 ---------------
 -- Treesitter

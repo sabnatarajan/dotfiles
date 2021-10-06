@@ -30,7 +30,11 @@ require('packer').startup {
     -- Telescope (Fuzzy finder, file browser)
     use {
       'nvim-telescope/telescope.nvim', 
-      requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
+      requires = {
+        {'nvim-lua/popup.nvim'}, 
+        {'nvim-lua/plenary.nvim'},
+        {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+      }
     }
 
     use 'tpope/vim-commentary'  -- comment stuff out
@@ -133,11 +137,13 @@ keymap('n', '<S-Up>', '<C-w>2>')
 --------------
 -- Telescope 
 --------------
+require('telescope').load_extension('fzf')
 keymap('n', '<leader>ff', '<cmd>lua require("telescope.builtin").find_files()<cr>')
 keymap('n', '<leader>fg', '<cmd>lua require("telescope.builtin").live_grep()<cr>')
 keymap('n', '<leader>fb', '<cmd>lua require("telescope.builtin").buffers()<cr>')
 keymap('n', '<leader>fh', '<cmd>lua require("telescope.builtin").help_tags()<cr>')
 keymap('n', '<leader>ft', '<cmd>lua require("telescope.builtin").file_browser()<cr>')
+keymap('n', '<leader>fG', '<cmd>lua require("telescope.builtin").git_commits()<cr>')
 
 --------
 -- LSP 

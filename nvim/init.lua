@@ -122,11 +122,14 @@ g.mapleader = ' '       -- Set the leader key
  
 keymap('i', '<C-s>', '<Esc>:w<cr>')   -- Ctrl-S as save
 keymap('n', '<C-s>', ':w<cr>')        -- Ctrl-S as save
-keymap('n', '<leader>ww', ':w<cr>')    -- Easy save
-keymap('n', '<leader>qq', ':q<cr>')    -- Easy quit
+keymap('n', '<leader>ww', ':w<cr>')   -- Easy save
+keymap('n', '<leader>qq', ':q<cr>')   -- Easy quit
 keymap('n', '<leader>wq', ':wq<cr>')  -- Easy save+quit
 keymap('n', '<leader>qa', ':qa!<cr>') -- Easy quit without save
-keymap('n', '<leader>rr', '<cmd>luafile ~/.config/nvim/init.lua<cr>') -- Easy quit without save
+keymap('n', '<leader>rr', ':so ~/.config/nvim/init.lua<cr>') -- Reload config
+
+-- Fugitive
+keymap('n', '<leader>gg', ':topleft Git<CR>')  -- Open Fugitive
 
 -- Better indenting
 keymap('n', '<S-Down>', '<C-w>2<')

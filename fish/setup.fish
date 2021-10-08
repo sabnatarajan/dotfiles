@@ -125,6 +125,8 @@ abbr hc herbstclient
 # Nix
 abbr n   nix
 abbr ne  nix-env
+abbr nei nix-env -iA 
+abbr neq nix-env -q
 abbr ngc nix-collect-garbage
 abbr nb  nix-build
 abbr nsh nix-shell

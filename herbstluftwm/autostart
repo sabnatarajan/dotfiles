@@ -47,10 +47,10 @@ hc keybind $Mod-Control-l     shift right
 
 # splitting frames
 # create an empty frame at the specified direction
-hc keybind $Mod-i       split bottom 0.5
-hc keybind $Mod-Shift-i split top    0.5
-hc keybind $Mod-o       split right  0.5
-hc keybind $Mod-Shift-o split left   0.5
+hc keybind $Mod-i       chain , split right  0.5 , focus right
+hc keybind $Mod-Shift-i chain , split left   0.5 , focus left
+hc keybind $Mod-o       chain , split bottom 0.5 , focus down
+hc keybind $Mod-Shift-o chain , split top    0.5 , focus up
 # let the current frame explode into subframes
 hc keybind $Mod-Control-space split explode
 

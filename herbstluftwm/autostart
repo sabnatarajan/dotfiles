@@ -66,10 +66,13 @@ hc keybind $Mod-Shift-Up    resize up    +$resizestep
 hc keybind $Mod-Shift-Right resize right +$resizestep
 
 # volume control
-volume_step=5
-hc keybind XF86AudioMute        spawn pactl set-sink-mute 0 toggle
-hc keybind XF86AudioRaiseVolume spawn pactl set-sink-volume 0 +$volume_step%
-hc keybind XF86AudioLowerVolume spawn pactl set-sink-volume 0 -$volume_step%
+volume_step='5%'
+pactl_sink() {
+  pactl get-default-sink
+}
+hc keybind XF86AudioMute        spawn pactl set-sink-mute   $(pactl_sink) toggle
+hc keybind XF86AudioRaiseVolume spawn pactl set-sink-volume $(pactl_sink) +${volume_step}
+hc keybind XF86AudioLowerVolume spawn pactl set-sink-volume $(pactl_sink) -${volume_step}
 hc keybind XF86AudioPlay        spawn playerctl play-pause
 hc keybind XF86AudioNext        spawn playerctl next
 hc keybind XF86AudioPrev        spawn playerctl previous

@@ -47,8 +47,7 @@ require('packer').startup {
 
     use 'chriskempson/base16-vim'  -- Base16 themes
     use {
-      'shadmansaleh/lualine.nvim',
-      'akinsho/bufferline.nvim',
+      'nvim-lualine/lualine.nvim',
       requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     }
     use 'lukas-reineke/indent-blankline.nvim'
@@ -116,7 +115,6 @@ cmd('filetype plugin indent on')
 cmd('set clipboard+=unnamedplus')
 
 require('colorizer').setup()
-require('bufferline').setup()
 require('lualine').setup()
 ----------------
 -- Keybindings

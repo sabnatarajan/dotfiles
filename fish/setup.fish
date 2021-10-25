@@ -1,6 +1,9 @@
 #Fish
 abbr setl "set -l"
 
+abbr y fish_clipboard_copy
+abbr p fish_clipboard_paste
+
 # DIRECTORY
 abbr -a -- - 'cd -'
 abbr l   "exa --long --header"

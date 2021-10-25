@@ -1,5 +1,5 @@
 IgnoreUnknown AddKeysToAgent,UseKeychain
-Include ~/.local/ssh/config
+Include ~/.local/config/ssh/config
 
 Host sn
   HostName github.com

@@ -152,7 +152,9 @@ animation-discharging-framerate  = 750
 type             = internal/temperature
 thermal-zone     = 0
 warn-temperature = 60
-hwmon-path       = /sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon1/temp2_input
+# To get the path for Tdie, run
+# rg Tdie 2>/dev/null /sys/devices
+# hwmon-path       = /sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon0/temp2_input
 format-prefix    = ":"
 format                = <label>
 ; format-underline      = #f50a4d

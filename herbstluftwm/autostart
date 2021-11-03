@@ -23,6 +23,7 @@ hc keybind $Mod-Shift-r reload
 hc keybind $Mod-x       close
 hc keybind $Mod-Return  spawn "${TERMINAL:-alacritty}" # use your $TERMINAL with xterm as fallback
 hc keybind $Mod-space   spawn rofi -show run
+hc keybind $Mod-f       spawn "${BROWSER:-firefox}"
 
 # basic movement in tiling and floating mode
 # focusing clients
@@ -101,8 +102,8 @@ hc keybind $Mod-comma  use_index -1 --skip-visible
 # layouting
 hc keybind $Mod-q         remove
 hc keybind $Mod-s         floating toggle
-hc keybind $Mod-f         fullscreen toggle
-hc keybind $Mod-Shift-f   set_attr clients.focus.floating toggle
+hc keybind $Mod-Shift-f   fullscreen toggle
+hc keybind $Mod-Control-f set_attr clients.focus.floating toggle
 hc keybind $Mod-Shift-m   set_attr clients.focus.minimized true
 hc keybind $Mod-Control-m jumpto last-minimized
 hc keybind $Mod-p         pseudotile toggle

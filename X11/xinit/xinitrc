@@ -9,4 +9,4 @@ xmodmap ~/.config/X11/xinit/xmodmap &
 numlockx &
 picom & 
 
-exec herbstluftwm
+exec bspwm

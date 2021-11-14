@@ -93,3 +93,19 @@ super + shift + f
 # run program launcher
 super + space
 	rofi -show run
+
+
+# volume control
+XF86AudioMute
+	pactl set-sink-mute   @DEFAULT_SINK@ toggle
+XF86AudioRaiseVolume
+	pactl set-sink-volume @DEFAULT_SINK@ +5%
+XF86AudioLowerVolume
+	pactl set-sink-volume @DEFAULT_SINK@ -5%
+XF86AudioPlay
+	playerctl play-pause
+XF86AudioNext
+	playerctl next
+XF86AudioPrev
+	playerctl previous
+

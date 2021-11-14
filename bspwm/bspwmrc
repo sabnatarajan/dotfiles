@@ -47,7 +47,7 @@ bspc rule --add discord     desktop='chat' follow=off
 # Autostart
 # ---------------------------------
 picom &
-~/.config/polybar/launch.sh "herbstluftwm" &
+~/.config/polybar/launch.sh &
 numlockx &
 pgrep -x sxhkd || sxhkd &
 xset r rate 200 100 &

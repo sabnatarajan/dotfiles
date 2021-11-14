@@ -14,7 +14,7 @@ compositing-underline = over
 margin-top = 0
 margin-bottom = 0
 
-[bar/herbstluftwm]
+[bar/default]
 monitor      = ${env:MONITOR}
 width        = 100%
 height       = 20
@@ -170,3 +170,5 @@ ramp-0          = 
 ramp-1          = 
 ramp-2          = 
 ramp-foreground = ${colors.foreground-alt}
+
+; vi: ft=dosini

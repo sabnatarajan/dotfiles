@@ -1,8 +1,9 @@
 # sxhkd Config
+# vi: shiftwidth=2
 
 # make sxhkd reload its configuration files:
 super + shift + s
-	pkill -USR1 -x sxhkd
+  pkill -USR1 -x sxhkd
 
 
 # -----------------------------------------------
@@ -14,20 +15,20 @@ super + shift + q
   bspc quit
 
 super + shift + r
-	bspc wm --restart
+  bspc wm --restart
 
 # close and kill
 super + x
-	bspc node -c
+  bspc node -c
 
 # alternate between the tiled and monocle layout
 super + ctrl + p
-	bspc desktop -l next
+  bspc desktop -l next
 
 # set the window state
 # '~' sets the last state on a repeated keypress
 super +        { t,      p,             s,         f }
-	bspc node -t {~tiled, ~pseudo_tiled, ~floating, ~fullscreen} 
+  bspc node -t {~tiled, ~pseudo_tiled, ~floating, ~fullscreen} 
 # set the node flags
 # super + ctrl + {m,x,y,z}
 # 	bspc node -g {marked,locked,sticky,private}
@@ -55,7 +56,7 @@ super + {shift, _} + grave
 
 # focus or send to the given desktop
 super + {_,shift + }{1-9,0}
-	bspc {desktop -f,node -d} focused:'^{1-9,10}'
+  bspc {desktop -f,node -d} focused:'^{1-9,10}'
 
 
 # preselect the direction
@@ -64,48 +65,45 @@ super +        {i,   o}
 
 # cancel the preselection for the focused node
 super + ctrl + {i,o}
-	bspc node -p cancel
+  bspc node -p cancel
 
 # expand a window by moving one of its side outward
 super + shift + { h,          j,            k,         l }
-	bspc node -z  { left -20 0, bottom 0  20, top 0 -20, right  20 0 }
-super + r: { h,          j,            k,         l }
-	bspc node -z  { left -20 0, bottom 0  20, top 0 -20, right  20 0 }
-super + shift + { n,          m,            comma,     period } 
+  bspc node -z  { left -20 0, bottom 0  20, top 0 -20, right  20 0 }
+super + shift + { n,          m,            comma,     period }
   bspc node -z  { left  20 0, bottom 0 -20, top 0  20, right -20 0 }
-super + r: { n,          m,            comma,     period } 
+super + r:      { h,          j,            k,         l }
+  bspc node -z  { left -20 0, bottom 0  20, top 0 -20, right  20 0 }
+super + r:      { n,          m,            comma,     period }
   bspc node -z  { left  20 0, bottom 0 -20, top 0  20, right -20 0 }
 
 # move a floating window
 super +        {Left,  Down, Up,    Right}
-	bspc node -v {-20 0, 0 20, 0 -20, 20 0}
+  bspc node -v {-20 0, 0 20, 0 -20, 20 0}
 
 
-# APPLICATION KEYBINDINGS (Super + Alt + Key)
+# ----------------------
+# Application shortcuts
+# ----------------------
 
-# terminal emulator
 super + Return
-	alacritty
+  alacritty
 
 super + shift + f
   firefox
     
-# run program launcher
 super + space
-	rofi -show run
+  rofi -show run
 
 
-# volume control
+# ---------------
+# Volume Control
+# ---------------
 XF86AudioMute
-	pactl set-sink-mute   @DEFAULT_SINK@ toggle
-XF86AudioRaiseVolume
-	pactl set-sink-volume @DEFAULT_SINK@ +5%
-XF86AudioLowerVolume
-	pactl set-sink-volume @DEFAULT_SINK@ -5%
-XF86AudioPlay
-	playerctl play-pause
-XF86AudioNext
-	playerctl next
-XF86AudioPrev
-	playerctl previous
+  pactl set-sink-mute   @DEFAULT_SINK@ toggle
+XF86Audio{RaiseVolume,LowerVolume}
+  pactl set-sink-volume @DEFAULT_SINK@ {+,-}5%
+XF86Audio{Play,Next,Prev}
+  playerctl {play-pause,next,previous}
+
 

@@ -5,7 +5,7 @@
 # -----------------------------------
 # BSPWM Config
 # -----------------------------------
-bspc monitor --reset-desktops term www dev chat media misc scratch
+bspc monitor --reset-desktops chat term www dev media misc scratch
 
 bspc config border_width                  2
 bspc config window_gap                    2

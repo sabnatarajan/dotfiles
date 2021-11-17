@@ -47,10 +47,10 @@ super + period
   bspc desktop -f next
 
 # focus the last node/desktop
-super + Tab
-	bspc node -f next
-super + grave
-  bspc desktop -f next
+super + {shift, _} + Tab
+  bspc node -f {prev, next}
+super + {shift, _} + grave
+  bspc desktop -f {prev, next}
 
 
 # focus or send to the given desktop

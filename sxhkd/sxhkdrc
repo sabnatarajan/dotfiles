@@ -21,7 +21,7 @@ super + x
 	bspc node -c
 
 # alternate between the tiled and monocle layout
-super + m
+super + ctrl + p
 	bspc desktop -l next
 
 # set the window state

@@ -7,7 +7,7 @@ window:
     x: 4
     y: 4
 
-  decorations: buttonless # full | none | transparent (mac) | buttonless (mac)
+  decorations: none # full | none | transparent (mac) | buttonless (mac)
   startup_mode: Maximized
   opacity: 1.0
 

@@ -55,8 +55,16 @@ super + {shift, _} + grave
 
 
 # focus or send to the given desktop
-super + {_,shift + }{1-9,0}
+super + {_,shift} + {1-9,0}
   bspc {desktop -f,node -d} focused:'^{1-9,10}'
+
+# monitor shortcuts
+alt + {1-9,0}
+  bspc monitor -f '^{1-9,10}'
+alt + shift + {1-9,0}
+  bspc node -m '^{1-9,10}' --follow
+alt +             { comma, period, h,     j,      k,     l }
+  bspc monitor -f { prev,  next,   west , south , north, east}
 
 
 # preselect the direction

@@ -47,6 +47,7 @@ bspc rule --add discord     desktop='chat' follow=off
 # ---------------------------------
 # Autostart
 # ---------------------------------
+[[ -f ~/.screenlayout/default.sh ]] && ~/.screenlayout/default.sh &
 picom &
 ~/.config/polybar/launch.sh &
 numlockx &

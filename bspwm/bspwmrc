@@ -1,12 +1,15 @@
-#!/bin/sh
+#!/bin/bash
 # BSPWM Config
 
 
 # -----------------------------------
 # BSPWM Config
 # -----------------------------------
-bspc monitor DisplayPort-0 -d chat term www dev misc
-bspc monitor HDMI-A-0      -d media scratch
+MAIN_MON=DisplayPort-0
+SECOND_MON=HDMI-A-0
+bspc monitor $MAIN_MON   -d chat term www dev misc
+bspc monitor $SECOND_MON -d media scratch
+xrandr --output $SECOND_MON --auto --above $MAIN_MON
 
 bspc config border_width                  2
 bspc config window_gap                    2
@@ -47,7 +50,8 @@ bspc rule --add discord     desktop='chat' follow=off
 # ---------------------------------
 # Autostart
 # ---------------------------------
-[[ -f ~/.screenlayout/default.sh ]] && ~/.screenlayout/default.sh &
+[[ -f ~/.screenlayout/default.sh ]] && ~/.screenlayout/default.sh
+xrdb ~/.config/X11/Xresources &
 picom &
 ~/.config/polybar/launch.sh &
 numlockx &

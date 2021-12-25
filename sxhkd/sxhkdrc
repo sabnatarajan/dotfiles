@@ -65,6 +65,8 @@ alt + shift + {1-9,0}
   bspc node -m '^{1-9,10}' --follow
 alt +             { comma, period, h,     j,      k,     l }
   bspc monitor -f { prev,  next,   west , south , north, east}
+alt + shift +  { h,    j,     k,     l }
+  bspc node -m { west, south, north, east }
 
 
 # preselect the direction

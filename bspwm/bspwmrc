@@ -56,6 +56,6 @@ picom &
 ~/.config/polybar/launch.sh &
 numlockx &
 pgrep -x sxhkd || sxhkd &
-xset r rate 200 100 &
+xset r rate 200 60 &
 feh --bg-fill --randomize ~/.local/share/wallpapers/*.jpg
 

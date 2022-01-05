@@ -102,6 +102,9 @@ super + Return
 super + shift + f
   firefox
     
+super + r
+  rofi -show run
+
 super + space
   rofi -show run
 

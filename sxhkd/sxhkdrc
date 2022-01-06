@@ -70,12 +70,8 @@ alt + shift +  { h,    j,     k,     l }
 
 
 # preselect the direction
-super +        {i,   o}
-  bspc node -p {east,south}
-
-# cancel the preselection for the focused node
-super + ctrl + {i,o}
-  bspc node -p cancel
+super +        {i,   o,    u}
+  bspc node -p {east,south,cancel}
 
 # expand a window by moving one of its side outward
 super + shift + { h,          j,            k,         l }

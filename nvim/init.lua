@@ -191,6 +191,7 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>',                                     opts)
   buf_set_keymap('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>',                                opts)
   buf_set_keymap('n', '<leader>F',  '<cmd>lua vim.lsp.buf.formatting()<CR>',                                 opts)
+  buf_set_keymap('n', '<leader>fd', '<cmd>lua require("telescope.builtin").diagnostics()<CR>',               opts)
 
   local expr = { expr = true }
   keymap('i', '<Tab>', 'pumvisible() ? "\\<C-n>" : "\\<Tab>"', expr)

@@ -122,13 +122,13 @@ require('lualine').setup()
 g.mapleader = ' '       -- Set the leader key
  
 keymap('i', '<C-s>', '<Esc>:w<CR>')   -- Ctrl-S as save
-keymap('n', '<C-s>', ':w<CR>')        -- Ctrl-S as save
-keymap('n', '<leader>ww', ':w<CR>')   -- Easy save
-keymap('n', '<leader>qq', ':q<CR>')   -- Easy quit
-keymap('n', '<leader>wq', ':wq<CR>')  -- Easy save+quit
-keymap('n', '<leader>qa', ':qa!<CR>') -- Easy quit without save
-keymap('n', '<leader>rr', ':so ~/.config/nvim/init.lua<CR>') -- Reload config
-keymap('n', '<esc>', ':noh<CR>', { silent=true })      -- Clear highlight after search
+keymap('n', '<C-s>', '<cmd>w<CR>')        -- Ctrl-S as save
+keymap('n', '<leader>ww', '<cmd>w<CR>')   -- Easy save
+keymap('n', '<leader>qq', '<cmd>q<CR>')   -- Easy quit
+keymap('n', '<leader>wq', '<cmd>wq<CR>')  -- Easy save+quit
+keymap('n', '<leader>qa', '<cmd>qa!<CR>') -- Easy quit without save
+keymap('n', '<leader>rr', '<cmd>source ~/.config/nvim/init.lua<CR>') -- Reload config
+keymap('n', '<esc>', '<cmd>noh<CR>', { silent=true })      -- Clear highlight after search
 
 -- Fugitive
 keymap('n', '<leader>gg', ':topleft Git<CR>')  -- Open Fugitive

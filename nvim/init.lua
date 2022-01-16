@@ -194,8 +194,8 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<leader>fd', '<cmd>lua require("telescope.builtin").diagnostics()<CR>',               opts)
 
   local expr = { expr = true }
-  keymap('i', '<Tab>', 'pumvisible() ? "\\<C-n>" : "\\<Tab>"', expr)
-  keymap('i', '<S-Tab>', 'pumvisible() ? "\\<C-p>" : "\\<S-Tab>"', expr)
+  keymap('i', '<c-j>', 'pumvisible() ? "\\<C-n>" : "\\<Tab>"', expr)
+  keymap('i', '<c-k>', 'pumvisible() ? "\\<C-p>" : "\\<S-Tab>"', expr)
 end
 
 -- Add additional capabilities supported by nvim-cmp

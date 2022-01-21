@@ -1,4 +1,5 @@
 -- Neovim config
+require("plugins")
 
 local api, cmd, fn, g = vim.api, vim.cmd, vim.fn, vim.g
 local o, b, w = vim.o, vim.bo, vim.wo
@@ -9,58 +10,6 @@ local function keymap(mode, lhs, rhs, opts)
   api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
-if require('autoload')() then
-  return
-end
-
-------------
--- Plugins
-------------
-
-require('packer').startup {
-  function(use)
-    -- Packer can manage itself
-    use 'wbthomason/packer.nvim'
-
-    use 'neovim/nvim-lspconfig'         -- Common configs for LSP client
-    use 'nvim-lua/lsp_extensions.nvim'  -- Extensions for built-in LSP
-    use 'nvim-treesitter/nvim-treesitter'
-
-    use 'hrsh7th/nvim-cmp' -- Autocompletion 
-    use 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp
-    use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
-    use 'L3MON4D3/LuaSnip' -- Snippets plugin
-
-    -- Telescope (Fuzzy finder, file browser)
-    use {
-      'nvim-telescope/telescope.nvim', 
-      requires = {
-        {'nvim-lua/popup.nvim'}, 
-        {'nvim-lua/plenary.nvim'},
-        {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-      }
-    }
-
-    use 'tpope/vim-commentary'  -- comment stuff out
-    use 'tpope/vim-fugitive'    -- A Git wrapper so awesome, it should be illegal
-    use 'tpope/vim-surround'    -- quoting/parenthesizing made simple
-
-    use 'chriskempson/base16-vim'  -- Base16 themes
-    use {
-      'nvim-lualine/lualine.nvim',
-      requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-    }
-    use 'lukas-reineke/indent-blankline.nvim'
-
-    use 'npxbr/glow.nvim'
-    use 'junegunn/vim-easy-align'
-    use 'junegunn/goyo.vim'
-
-    use 'blankname/vim-fish'     -- Syntax highlighting for Fish
-
-    use 'norcalli/nvim-colorizer.lua'
-  end
-}
 
 -- Set the base16 theme
 if fn.filereadable(fn.expand("~/.vimrc_background")) then
@@ -73,45 +22,43 @@ end
 -------------
 
 o.encoding = 'utf-8'
-o.hidden = true        -- Multiple (hidden) buffers
-o.mouse = 'a'          -- Enable mouse on all modes
-o.pumheight = 10       -- Smaller popup menu
-o.cmdheight = 2        -- More space to display messages
-o.errorbells = false
-o.smartcase = true     -- Case sensitive search if pattern has uppercase
-o.showmode = false     -- Modes are not shown (-- INSERT --)
-o.ruler = true         -- Show cursor position
-o.scrolloff = 10       -- Start scrolling before reaching the end
+o.hidden = true        -- multiple (hidden) buffers
+o.mouse = 'a'          -- enable mouse on all modes
+o.pumheight = 10       -- smaller popup menu
+o.cmdheight = 2        -- more space to display messages
+o.errorbells = false   -- disable error bells/screen flash for errors
+o.smartcase = true     -- case sensitive search if pattern has uppercase
+o.showmode = false     -- modes are not shown (-- INSERT --)
+o.ruler = true         -- show cursor position
+o.scrolloff = 10       -- start scrolling before reaching the end
 o.background = 'dark'
-o.incsearch = true     -- Highlight search matches while typing
-o.inccommand = 'split' -- Show partial results in a preview window
-o.laststatus = 2       -- Always display the status line
-o.showtabline = 2      -- Always show the tab-page labels
-o.updatetime = 200     -- Delay before swapfile is saved
+o.incsearch = true     -- highlight search matches while typing
+o.inccommand = 'split' -- show partial results in a preview window
+o.laststatus = 2       -- always display the status line
+o.showtabline = 2      -- always show the tab-page labels
+o.updatetime = 200     -- delay before swapfile is saved
 
-w.number = true        -- Line numbers
-w.rnu = false          -- Relative line numbers
-w.wrap = false         -- Don't wrap long lines
-w.cursorline = true    -- Highlight the current line
+w.number = true        -- line numbers
+w.rnu = false          -- relative line numbers
+w.wrap = false         -- don't wrap long lines
+w.cursorline = true    -- highlight the current line
 
-b.expandtab = true     -- Convert tabs to spaces
-b.tabstop = 2          -- 
-b.softtabstop = 2      --
+b.expandtab = true     -- convert tabs to spaces
+b.softtabstop = 2      -- number of spaces that <Tab> counts for while editing
+b.shiftwidth = 2       -- number of spaces for (auto)indents
 b.autoindent = true    --
 b.smartindent = true   --
-b.shiftwidth = 2       --
 b.swapfile = false
 o.backup = false
 o.writebackup = false
-o.switchbuf = 'usetab,newtab'
 g.switchbuf = 'usetab,newtab'
 o.splitright = true
 o.splitbelow = true
 o.shell="/bin/bash"
 o.termguicolors = true
 
-cmd('syntax enable')
-cmd('filetype plugin indent on')
+cmd('syntax enable')               -- enable syntax highlighting
+cmd('filetype plugin indent on')  
 cmd('set clipboard+=unnamedplus')
 
 require('colorizer').setup()
@@ -121,7 +68,7 @@ require('lualine').setup()
 ----------------
 g.mapleader = ' '       -- Set the leader key
  
-keymap('i', '<C-s>', '<Esc>:w<CR>')   -- Ctrl-S as save
+keymap('i', '<C-s>', '<Esc>:w<CR>')       -- Ctrl-S as save
 keymap('n', '<C-s>', '<cmd>w<CR>')        -- Ctrl-S as save
 keymap('n', '<leader>ww', '<cmd>w<CR>')   -- Easy save
 keymap('n', '<leader>qq', '<cmd>q<CR>')   -- Easy quit

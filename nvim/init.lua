@@ -1,90 +1,11 @@
 -- Neovim config
+require("settings")
 require("plugins")
 
-local api, cmd, fn, g = vim.api, vim.cmd, vim.fn, vim.g
-local o, b, w = vim.o, vim.bo, vim.wo
-
-local function keymap(mode, lhs, rhs, opts)
-  local options = {noremap = true}
-  if opts then options = vim.tbl_extend('force', options, opts) end
-  api.nvim_set_keymap(mode, lhs, rhs, options)
-end
-
-
--- Set the base16 theme
-if fn.filereadable(fn.expand("~/.vimrc_background")) then
-  cmd('let base16colorspace=256')
-  cmd('source ~/.vimrc_background')
-end
-
--------------
--- Settings
--------------
-
-o.encoding = 'utf-8'
-o.hidden = true        -- multiple (hidden) buffers
-o.mouse = 'a'          -- enable mouse on all modes
-o.pumheight = 10       -- smaller popup menu
-o.cmdheight = 2        -- more space to display messages
-o.errorbells = false   -- disable error bells/screen flash for errors
-o.smartcase = true     -- case sensitive search if pattern has uppercase
-o.showmode = false     -- modes are not shown (-- INSERT --)
-o.ruler = true         -- show cursor position
-o.scrolloff = 10       -- start scrolling before reaching the end
-o.background = 'dark'
-o.incsearch = true     -- highlight search matches while typing
-o.inccommand = 'split' -- show partial results in a preview window
-o.laststatus = 2       -- always display the status line
-o.showtabline = 2      -- always show the tab-page labels
-o.updatetime = 200     -- delay before swapfile is saved
-
-w.number = true        -- line numbers
-w.rnu = false          -- relative line numbers
-w.wrap = false         -- don't wrap long lines
-w.cursorline = true    -- highlight the current line
-
-b.expandtab = true     -- convert tabs to spaces
-b.softtabstop = 2      -- number of spaces that <Tab> counts for while editing
-b.shiftwidth = 2       -- number of spaces for (auto)indents
-b.autoindent = true    --
-b.smartindent = true   --
-b.swapfile = false
-o.backup = false
-o.writebackup = false
-g.switchbuf = 'usetab,newtab'
-o.splitright = true
-o.splitbelow = true
-o.shell="/bin/bash"
-o.termguicolors = true
-
-cmd('syntax enable')               -- enable syntax highlighting
-cmd('filetype plugin indent on')  
-cmd('set clipboard+=unnamedplus')
+local utils = require("utils")
 
 require('colorizer').setup()
 require('lualine').setup()
-----------------
--- Keybindings
-----------------
-g.mapleader = ' '       -- Set the leader key
- 
-keymap('i', '<C-s>', '<Esc>:w<CR>')       -- Ctrl-S as save
-keymap('n', '<C-s>', '<cmd>w<CR>')        -- Ctrl-S as save
-keymap('n', '<leader>ww', '<cmd>w<CR>')   -- Easy save
-keymap('n', '<leader>qq', '<cmd>q<CR>')   -- Easy quit
-keymap('n', '<leader>wq', '<cmd>wq<CR>')  -- Easy save+quit
-keymap('n', '<leader>qa', '<cmd>qa!<CR>') -- Easy quit without save
-keymap('n', '<leader>rr', '<cmd>source ~/.config/nvim/init.lua<CR>') -- Reload config
-keymap('n', '<esc>', '<cmd>noh<CR>', { silent=true })      -- Clear highlight after search
-
--- Fugitive
-keymap('n', '<leader>gg', ':topleft Git<CR>')  -- Open Fugitive
-
--- Better indenting
-keymap('n', '<S-Down>', '<C-w>2<')
-keymap('n', '<S-Left>', '<C-w>2-')
-keymap('n', '<S-Right>', '<C-w>2+')
-keymap('n', '<S-Up>', '<C-w>2>')
 
 --------------
 -- Telescope 
@@ -97,19 +18,19 @@ require('telescope').setup{
   }
 }
 require('telescope').load_extension('fzf')
-keymap('n', '<leader>ff', '<cmd>lua require("telescope.builtin").find_files()<CR>')
-keymap('n', '<leader>fr', '<cmd>lua require("telescope.builtin").live_grep()<CR>')
-keymap('n', '<leader>fg', '<cmd>lua require("telescope.builtin").git_files()<CR>')
-keymap('n', '<leader>fb', '<cmd>lua require("telescope.builtin").buffers()<CR>')
-keymap('n', '<leader>fh', '<cmd>lua require("telescope.builtin").help_tags()<CR>')
-keymap('n', '<leader>ft', '<cmd>lua require("telescope.builtin").file_browser()<CR>')
-keymap('n', '<leader>fG', '<cmd>lua require("telescope.builtin").git_commits()<CR>')
+utils.keymap('n', '<leader>ff', '<cmd>lua require("telescope.builtin").find_files()<CR>')
+utils.keymap('n', '<leader>fr', '<cmd>lua require("telescope.builtin").live_grep()<CR>')
+utils.keymap('n', '<leader>fg', '<cmd>lua require("telescope.builtin").git_files()<CR>')
+utils.keymap('n', '<leader>fb', '<cmd>lua require("telescope.builtin").buffers()<CR>')
+utils.keymap('n', '<leader>fh', '<cmd>lua require("telescope.builtin").help_tags()<CR>')
+utils.keymap('n', '<leader>ft', '<cmd>lua require("telescope.builtin").file_browser()<CR>')
+utils.keymap('n', '<leader>fG', '<cmd>lua require("telescope.builtin").git_commits()<CR>')
 
 --------
 -- LSP 
 --------
-o.completeopt = 'menuone,noinsert,noselect'
-cmd('set shortmess+=c')
+vim.o.completeopt = 'menuone,noinsert,noselect'
+vim.cmd('set shortmess+=c')
 
 local lsp = require'lspconfig'
 
@@ -141,8 +62,8 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<leader>fd', '<cmd>lua require("telescope.builtin").diagnostics()<CR>',               opts)
 
   local expr = { expr = true }
-  keymap('i', '<c-j>', 'pumvisible() ? "\\<C-n>" : "\\<Tab>"', expr)
-  keymap('i', '<c-k>', 'pumvisible() ? "\\<C-p>" : "\\<S-Tab>"', expr)
+  utils.keymap('i', '<c-j>', 'pumvisible() ? "\\<C-n>" : "\\<Tab>"', expr)
+  utils.keymap('i', '<c-k>', 'pumvisible() ? "\\<C-p>" : "\\<S-Tab>"', expr)
 end
 
 -- Add additional capabilities supported by nvim-cmp
@@ -220,4 +141,4 @@ ts.setup {ensure_installed = 'maintained', highlight = {enable = true}}
 ----------------------
 --  Glow (Markdown)
 ----------------------
-keymap('n', '<leader>md', ':Glow<CR>')
+utils.keymap('n', '<leader>md', ':Glow<CR>')

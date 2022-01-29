@@ -40,10 +40,16 @@ return packer.startup(function(use)
     run = ":TSUpdate"
   }
 
-  use 'hrsh7th/nvim-cmp'              -- Autocompletion 
-  use 'hrsh7th/cmp-nvim-lsp'          -- LSP source for nvim-cmp
-  use 'L3MON4D3/LuaSnip'              -- Snippets plugin
-  use 'saadparwaiz1/cmp_luasnip'      -- Snippets source for nvim-cmp
+  -- autocomplete
+  use 'hrsh7th/nvim-cmp'
+  use 'hrsh7th/cmp-nvim-lsp'  -- LSP source for nvim-cmp
+  use 'hrsh7th/cmp-buffer'
+  use 'hrsh7th/cmp-path'
+  use 'hrsh7th/cmp-cmdline'
+
+  -- snippets
+  use 'L3MON4D3/LuaSnip'
+  use 'saadparwaiz1/cmp_luasnip'  -- Snippets source for nvim-cmp
 
   -- Telescope (Fuzzy finder, file browser)
   use {

@@ -1,3 +1,5 @@
+local utils = require("utils")
+
 local api, cmd, fn, g = vim.api, vim.cmd, vim.fn, vim.g
 local o, b, w = vim.o, vim.bo, vim.wo
 
@@ -54,7 +56,8 @@ cmd('set clipboard+=unnamedplus')
 ----------------
 -- Keybindings
 ----------------
-vim.g.mapleader = ' '       -- Set the leader key
+local g = vim.g
+g.mapleader = ' '       -- Set the leader key
  
 utils.keymap('i', '<C-s>', '<Esc>:w<CR>')       -- Ctrl-S as save
 utils.keymap('n', '<C-s>', '<cmd>w<CR>')        -- Ctrl-S as save

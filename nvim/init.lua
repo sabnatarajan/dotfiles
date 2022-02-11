@@ -9,9 +9,9 @@ local utils = require("utils")
 require('colorizer').setup()
 require('lualine').setup()
 
---------------
+-----------------------------------------------------------------------
 -- Telescope 
---------------
+-----------------------------------------------------------------------
 require('telescope').setup{
   defaults = {
     path_display = {
@@ -27,21 +27,22 @@ utils.keymap('n', '<leader>fb', '<cmd>lua require("telescope.builtin").buffers()
 utils.keymap('n', '<leader>fh', '<cmd>lua require("telescope.builtin").help_tags()<CR>')
 utils.keymap('n', '<leader>ft', '<cmd>lua require("telescope.builtin").file_browser()<CR>')
 utils.keymap('n', '<leader>fG', '<cmd>lua require("telescope.builtin").git_commits()<CR>')
+utils.keymap('n', '<leader>pp', '<cmd>lua require("telescope.builtin").builtin()<CR>')
 
 -- luasnip setup
 local luasnip = require 'luasnip'
 
 
----------------
+-----------------------------------------------------------------------
 -- Treesitter
----------------
+-----------------------------------------------------------------------
 local ts = require 'nvim-treesitter.configs'
 ts.setup {ensure_installed = 'maintained', highlight = {enable = true}}
 
 
-----------------------
+-----------------------------------------------------------------------
 --  Glow (Markdown)
-----------------------
+-----------------------------------------------------------------------
 utils.keymap('n', '<leader>md', ':Glow<CR>')
 
 

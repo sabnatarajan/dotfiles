@@ -5,7 +5,6 @@ export $(gnome-keyring-daemon --start --components=pkcs11,secrets)
 dbus-update-activation-environment --systemd DISPLAY
 
 xset r rate 200 100 &
-xmodmap ~/.config/X11/xinit/xmodmap &
 numlockx &
 picom & 
 wmname compiz &

@@ -59,6 +59,7 @@ end
 toggleterm.setup({
   size = 20,
   open_mapping = [[<leader>tt]],
+  insert_mappings = false,
   hide_numbers = true,
   start_in_insert = true,
   shell = "fish",

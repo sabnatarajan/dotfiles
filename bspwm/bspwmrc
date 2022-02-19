@@ -1,15 +1,12 @@
 #!/bin/bash
-# BSPWM Config
 
-
-# -----------------------------------
-# BSPWM Config
-# -----------------------------------
+# Monitor config -------------------------------------------
 MAIN_MON=DisplayPort-0
 SECOND_MON=HDMI-A-0
 bspc monitor $MAIN_MON   -d chat term www dev misc
 bspc monitor $SECOND_MON -d media scratch
 
+# Settings -------------------------------------------------
 bspc config border_width                  2
 bspc config window_gap                    2
 bspc config top_padding                   20
@@ -31,29 +28,22 @@ bspc config pointer_action1               move
 bspc config pointer_action2               resize_side
 bspc config pointer_action3               resize_corner
 
-# Colors
+# Colors ---------------------------------------------------
 bspc config normal_border_color   "#4c566a"
 bspc config active_border_color   "#1e1e1e"
 bspc config focused_border_color  "#5e81ac"
 bspc config presel_feedback_color "#5e81ac"
 bspc config urgent_border_color   "#dd2727"
 
-# ---------------------------------
-# Rules
-# ---------------------------------
+# Rules ----------------------------------------------------
 bspc rule --add firefox     desktop='www'  follow=off
 bspc rule --add Alacritty   desktop='term' follow=off
 bspc rule --add Slack       desktop='chat' follow=off
 bspc rule --add discord     desktop='chat' follow=off
 
-# ---------------------------------
-# Autostart
-# ---------------------------------
-xrdb ~/.config/X11/Xresources &
-picom &
-~/.config/polybar/launch.sh &
-numlockx &
-pgrep -x sxhkd || sxhkd &
-xset r rate 200 60 &
+# Autostart ------------------------------------------------
+xrdb ~/.config/X11/Xresources
+~/.config/polybar/launch.sh
+pgrep -x sxhkd || sxhkd
 feh --bg-fill --randomize ~/.local/share/wallpapers/*.jpg
 

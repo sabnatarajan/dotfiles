@@ -95,6 +95,9 @@ super +        {Left,  Down, Up,    Right}
 super + Return
   alacritty
 
+super + shift + Return
+  bspc rule -a \* -o state=floating sticky=on layer=above rectangle=1080x720+360+180 && alacritty
+
 super + shift + f
   firefox
     

@@ -7,7 +7,13 @@ require "lsp"
 local utils = require("utils")
 
 require('colorizer').setup()
-require('lualine').setup()
+require('lualine').setup{
+  options = {
+    theme = 'gruvbox',
+    section_separators = '',
+    component_separators = '',
+  }
+}
 
 -----------------------------------------------------------------------
 -- Telescope 

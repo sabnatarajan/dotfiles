@@ -1,8 +1,9 @@
 #!/bin/bash
 
 # Monitor config -------------------------------------------
-MAIN_MON=DisplayPort-0
-SECOND_MON=HDMI-A-0
+~/.screenlayout/default.sh
+MAIN_MON=DP-1
+SECOND_MON=HDMI-1
 bspc monitor $MAIN_MON   -d chat term www dev misc
 bspc monitor $SECOND_MON -d media scratch
 

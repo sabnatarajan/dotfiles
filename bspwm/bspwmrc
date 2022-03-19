@@ -8,8 +8,8 @@ bspc monitor $MAIN_MON   -d chat dev www misc scratch
 bspc monitor $SECOND_MON -d media
 
 # Settings -------------------------------------------------
-bspc config border_width                  2
-bspc config window_gap                    2
+bspc config border_width                  4
+bspc config window_gap                    4
 bspc config top_padding                   30
 bspc config bottom_padding                0
 bspc config left_padding                  0
@@ -30,11 +30,28 @@ bspc config pointer_action2               resize_side
 bspc config pointer_action3               resize_corner
 
 # Colors ---------------------------------------------------
-bspc config normal_border_color   "#4c566a"
-bspc config active_border_color   "#1e1e1e"
-bspc config focused_border_color  "#5e81ac"
-bspc config presel_feedback_color "#5e81ac"
-bspc config urgent_border_color   "#dd2727"
+base00=#1d2021
+base01=#3c3836
+base02=#504945
+base03=#665c54
+base04=#bdae93
+base05=#d5c4a1
+base06=#ebdbb2
+base07=#fbf1c7
+base08=#fb4934
+base09=#fe8019
+base0a=#fabd2f
+base0b=#b8bb26
+base0c=#8ec07c
+base0d=#83a598
+base0e=#d3869b
+base0f=#d65d0e
+
+bspc config normal_border_color   ${base01}
+bspc config active_border_color   ${base0d}
+bspc config focused_border_color  ${base0b}
+bspc config presel_feedback_color ${base0d}
+bspc config urgent_border_color   ${base08}
 
 # Rules ----------------------------------------------------
 bspc rule --add firefox     desktop='www'  follow=off

@@ -4,8 +4,8 @@
 ~/.screenlayout/default.sh
 MAIN_MON=DP-1
 SECOND_MON=HDMI-1
-bspc monitor $MAIN_MON   -d chat term www dev misc
-bspc monitor $SECOND_MON -d media scratch
+bspc monitor $MAIN_MON   -d chat dev www misc scratch
+bspc monitor $SECOND_MON -d media
 
 # Settings -------------------------------------------------
 bspc config border_width                  2
@@ -38,9 +38,10 @@ bspc config urgent_border_color   "#dd2727"
 
 # Rules ----------------------------------------------------
 bspc rule --add firefox     desktop='www'  follow=off
-bspc rule --add Alacritty   desktop='term' follow=off
+bspc rule --add Alacritty   desktop='dev' follow=off
 bspc rule --add Slack       desktop='chat' follow=off
 bspc rule --add discord     desktop='chat' follow=off
+bspc rule --add spotify     desktop='media' follow=off
 
 # Autostart ------------------------------------------------
 xrdb ~/.config/X11/Xresources

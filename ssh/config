@@ -27,5 +27,10 @@ Host 10.40.60.4*
   IdentitiesOnly yes
   IdentityFile ~/.ssh/yubikey_rsa.pub
 
+Host 10.40.60.30
+  User sab
+  IdentitiesOnly yes
+  IdentityFile ~/.ssh/yubikey_rsa.pub
+
 Host *
   User sab

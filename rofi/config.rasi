@@ -1,5 +1,5 @@
 configuration {
-  modi: "run,calc,window";
+  modi: "run,calc,drun,combi,window";
   show-icons: true;
   timeout {
       action: "kb-cancel";

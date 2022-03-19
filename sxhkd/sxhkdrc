@@ -102,10 +102,10 @@ super + shift + f
   firefox
     
 super + r
-  rofi -show run
+  rofi -show
 
 super + space
-  rofi -show run
+  rofi -show
 
 
 # ---------------

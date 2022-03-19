@@ -1,57 +1,47 @@
 include-file = "~/.config/polybar/colors.ini"
 include-file = "~/.config/polybar/modules.ini"
 
+; vi: ft=dosini
+
 [settings]
 screenchange-reload = true
 compositing-background = over
-; compositing-background = screen
 compositing-foreground = over
 compositing-border = over
 compositing-underline = over
-; pseudo-transparency = false
 
 [global/wm]
-margin-top = 0
-margin-bottom = 0
 
 [bar/default]
 monitor      = ${env:MONITOR}
 width        = 100%
-height       = 20
+height       = 30
 offset-x     = 0%
 offset-y     = 0%
 radius       = 0
 fixed-center = true
 bottom       = false
+background   = ${colors.bg}
+foreground   = ${colors.fg}
 
-background = ${colors.background}
-foreground = ${colors.foreground}
-
-line-size  = 0
-line-color = #f00
-
-border-size  = 0
-border-color = #00000000
-
-padding-left  = 0
-padding-right = 0
-
+margin-top    = 0
+margin-bottom = 0
+padding-left  = 2
+padding-right = 2
 module-margin-left  = 1
 module-margin-right = 1
 
-font-0 = FiraCode Nerd Font:pixelsize=10;1
-; font-1 = FiraCode Nerd Font:pixelsize=10;1
+font-0 = FiraCode Nerd Font:pixelsize=13;3
 
 modules-left   = powermenu ewmh xwindow
-modules-center = 
-modules-right  = spotify prev play next temperature cpu memory eth volume date
+modules-center = date
+modules-right  = filesystem spotify prev play next temperature cpu memory network volume
 
 tray-position    = right
 tray-padding     = 0
-;tray-background = #0063ff
+tray-background  = ${colors.bg}
 
 wm-restack        = bspwm
-;wm-restack        = i3
 override-redirect = true
 
 cursor-click  = pointer
@@ -62,10 +52,201 @@ type     = internal/fs
 interval = 25
 
 mount-0 = /
+label-mounted         = "%percentage_used%%"
+format-mounted-prefix = " "
+format-mounted-prefix-foreground = ${colors.fg-alt}
 
-label-mounted              = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
-label-unmounted            = %mountpoint% not mounted
-label-unmounted-foreground = ${colors.foreground-alt}
+[module/temperature]
+type             = internal/temperature
+thermal-zone     = 0
+warn-temperature = 60
+# To get the path for Tdie, run
+# rg Tdie 2>/dev/null /sys/devices
+hwmon-path       = /sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon0/temp2_input
+format-prefix    = " "
+format                = <label>
+label                    = %temperature-c%
+label-warn               = %temperature-c%
+label-warn-foreground    = ${colors.base09}
+format-prefix-foreground = ${colors.base0f}
+
+[module/xwindow]
+type  = internal/xwindow
+label = %title:0:30:...%
+
+[module/powermenu]
+type = custom/menu
+
+expand-right = true
+format-spacing = 1
+
+label-open                 = "⏻ "
+label-open-foreground      = ${colors.fg}
+label-close                = "⏻ "
+label-close-foreground     = ${colors.fg-alt}
+label-separator            = |
+label-separator-foreground = ${colors.fg-alt}
+
+menu-0-0      = reboot
+menu-0-0-exec = menu-open-1
+menu-0-1      = power off
+menu-0-1-exec = menu-open-2
+
+menu-1-0      = cancel
+menu-1-0-exec = menu-open-0
+menu-1-1      = reboot
+menu-1-1-exec = sudo reboot
+
+menu-2-0      = power off
+menu-2-0-exec = sudo poweroff
+menu-2-1      = cancel
+menu-2-1-exec = menu-open-0
+
+[module/ewmh]
+type = internal/xworkspaces
+
+pin-workspaces = true
+enable-click   = true
+enable-scroll  = true
+reverse-scroll = true
+
+;extra icons to choose from
+;http://fontawesome.io/cheatsheet/
+;       v     
+
+icon-0 = 1;
+icon-1 = 2;
+icon-2 = 3;
+icon-3 = 4;
+icon-4 = 5;
+icon-5 = 6;
+icon-6 = 8;
+icon-7 = 8;
+#icon-8 = 9;
+#icon-9 = 10;
+#icon-default = " "
+format = <label-state>
+label-monitor = %name%
+
+label-active = %name%
+label-active-foreground = ${colors.fg}
+label-active-background = ${colors.bg-alt}
+label-active-underline= ${colors.base0d}
+label-active-padding = 1
+
+label-occupied = %name%
+label-occupied-background = ${colors.bg}
+label-occupied-padding = 1
+
+label-urgent = %name%
+label-urgent-foreground = ${colors.fg}
+label-urgent-background = ${colors.alert}
+label-urgent-underline = ${colors.alert}
+label-urgent-padding = 1
+
+label-empty = %name%
+label-empty-foreground = ${colors.fg}
+label-empty-padding = 1
+format-foreground = ${colors.fg}
+format-background = ${colors.bg}
+
+[module/cpu]
+type                     = internal/cpu
+interval                 = 2
+format-prefix            = " "
+format-prefix-foreground = ${colors.base0f}
+format                   = <label>
+label                    = %percentage%%
+
+[module/memory]
+type                     = internal/memory
+interval                 = 2
+format 			 = <label>
+format-prefix            = " "
+format-prefix-foreground = ${colors.base0c}
+label                    = "%used%"
+
+[module/network]
+type      = internal/network
+interface = enp7s0
+interval  = 2
+
+format-connected = <label-connected>
+label-connected  =  %upspeed%  %downspeed%
+
+[module/date]
+type     = internal/date
+interval = 1
+label = %date% %time%
+
+date     = "%a, %b %d"
+date-alt = "%a, %b %d"
+time     = %H:%M
+time-alt = %H:%M:%S
+
+[module/volume]
+type = internal/pulseaudio
+
+format-volume           = <ramp-volume> <label-volume>
+label-volume            = %percentage%%
+label-volume-foreground = ${colors.fg}
+
+label-muted            =  muted
+label-muted-foreground = ${colors.base08}
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+
+bar-volume-width            = 10
+bar-volume-foreground-0     = ${colors.base0b}
+bar-volume-foreground-1     = ${colors.base0b}
+bar-volume-foreground-2     = ${colors.base0b}
+bar-volume-foreground-3     = ${colors.base0b}
+bar-volume-foreground-4     = ${colors.base0b}
+bar-volume-foreground-5     = ${colors.base0a}
+bar-volume-foreground-6     = ${colors.base08}
+bar-volume-gradient         = false
+bar-volume-indicator        = |
+bar-volume-indicator-font   = 2
+bar-volume-fill             = ─
+bar-volume-fill-font        = 2
+bar-volume-empty            = ─
+bar-volume-empty-font       = 2
+bar-volume-empty-foreground = ${colors.fg-alt}
+
+[module/spotify]
+type = custom/script
+interval = 1
+format-prefix = " "
+format-prefix-foreground = ${colors.base0b}
+format = <label>
+exec = qdbus org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Metadata | grep title | cut -d':' -f3 | xargs -0
+exec-if = pgrep spotify
+click-left = playerctl --player=spotify play-pause
+
+[module/prev]
+type = custom/text
+content = 
+click-left = playerctl --player=spotify previous
+
+[module/play]
+type = custom/text
+content = 
+click-left = playerctl --player=spotify play-pause
+
+[module/next]
+type = custom/text
+content = 
+click-left = playerctl --player=spotify next
+
+
+[module/hlwm]
+type = custom/script
+exec = ~/.config/polybar/scripts/info-hlwm-workspaces.sh
+tail = true
+scroll-up   = herbstclient use_index -1 --skip-visible &
+scroll-down = herbstclient use_index +1 --skip-visible &
 
 [module/mpd]
 type          = internal/mpd
@@ -80,41 +261,6 @@ icon-next  = 
 label-song-maxlen   = 25
 label-song-ellipsis = true
 
-[module/eth]
-type      = internal/network
-interface = enp34s0
-interval  = 2
-
-format-connected = <label-connected>
-label-connected  = %upspeed% | %downspeed%
-
-; format-connected-underline         = #55aa55
-; format-connected-prefix            = " "
-; format-connected-prefix-foreground = ${colors.foreground-alt}
-; label-connected                    = %local_ip%
-
-; format-disconnected =
-;format-disconnected = <label-disconnected>
-;format-disconnected-underline = ${self.format-connected-underline}
-;label-disconnected = %ifname% disconnected
-;label-disconnected-foreground = ${colors.foreground-alt}
-
-[module/date]
-type     = internal/date
-interval = 1
-
-date     = 
-date-alt = "%a, %b %d"
-
-time     = %H:%M
-time-alt = %H:%M:%S
-
-format-prefix              = 
-; format-prefix-foreground = ${colors.foreground}
-format-underline           = #0a6cf5
-
-label = %date% %time%
-
 [module/battery]
 type    = internal/battery
 battery = BAT0
@@ -128,47 +274,23 @@ format-discharging           = <animation-discharging> <label-discharging>
 format-discharging-underline = ${self.format-charging-underline}
 
 format-full-prefix            = " "
-format-full-prefix-foreground = ${colors.foreground-alt}
+format-full-prefix-foreground = ${colors.fg-alt}
 format-full-underline         = ${self.format-charging-underline}
 
 ramp-capacity-0          = 
 ramp-capacity-1          = 
 ramp-capacity-2          = 
-ramp-capacity-foreground = ${colors.foreground-alt}
+ramp-capacity-foreground = ${colors.fg-alt}
 
 animation-charging-0          = 
 animation-charging-1          = 
 animation-charging-2          = 
-animation-charging-foreground = ${colors.foreground-alt}
+animation-charging-foreground = ${colors.fg-alt}
 animation-charging-framerate  = 750
 
 animation-discharging-0          = 
 animation-discharging-1          = 
 animation-discharging-2          = 
-animation-discharging-foreground = ${colors.foreground-alt}
+animation-discharging-foreground = ${colors.fg-alt}
 animation-discharging-framerate  = 750
 
-[module/temperature]
-type             = internal/temperature
-thermal-zone     = 0
-warn-temperature = 60
-# To get the path for Tdie, run
-# rg Tdie 2>/dev/null /sys/devices
-hwmon-path       = /sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon0/temp2_input
-format-prefix    = ":"
-format                = <label>
-; format-underline      = #f50a4d
-; format-warn           = <label-warn>
-; format-warn-underline = ${self.format-underline}
-
-label                    = %temperature-c%
-label-warn               = %temperature-c%
-label-warn-foreground    = ${colors.secondary}
-format-prefix-foreground = ${colors.foreground-alt}
-
-ramp-0          = 
-ramp-1          = 
-ramp-2          = 
-ramp-foreground = ${colors.foreground-alt}
-
-; vi: ft=dosini

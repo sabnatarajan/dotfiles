@@ -9,4 +9,4 @@ numlockx &
 picom & 
 wmname compiz &
 
-exec bspwm
+exec awesome

@@ -46,7 +46,7 @@ beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 beautiful.font = "Noto Sans 14"
 beautiful.useless_gap = 4
 -- Setup programs
-terminal   = "alacritty"
+terminal   = "alacritty --option window.startup_mode=Windowed"
 editor     = os.getenv("EDITOR") or "nvim"
 editor_cmd = terminal .. " -e " .. editor
 launcher   = "rofi -show"
@@ -74,7 +74,7 @@ main_menu = awful.menu({
   width = 300,
   items = {
     { "awesome", awesome_menu, beautiful.awesome_icon },
-    { "open terminal", terminal },
+    { "open terminal", function() awful.spawn(terminal) end },
     { "firefox", function() awful.spawn("firefox") end } 
   }
 })
@@ -123,18 +123,6 @@ local tasklist_buttons = gears.table.join(
   awful.button({ }, 3, function() awful.menu.client_list({ theme = { width = 250 } }) end),
   awful.button({ }, 4, function () awful.client.focus.byidx(1) end),
   awful.button({ }, 5, function () awful.client.focus.byidx(-1) end))
-
--- local function set_wallpaper(s)
---   -- Wallpaper
---   if beautiful.wallpaper then
---     local wallpaper = beautiful.wallpaper
---     -- If wallpaper is a function, call it with the screen
---     if type(wallpaper) == "function" then
---       wallpaper = wallpaper(s)
---     end
---     gears.wallpaper.maximized(wallpaper, s, true)
---   end
--- end
 
 local function set_wallpaper(s)
   awful.spawn.with_shell("feh --bg-fill --randomize ~/.local/share/wallpapers/*.jpg")
@@ -210,6 +198,9 @@ root.buttons(gears.table.join(
 
 -- {{{ Key bindings
 globalkeys = gears.table.join(
+  awful.key({ mod, shift }, "r", awesome.restart, {description = "reload awesome", group = "awesome"}),
+  awful.key({ mod, shift }, "q", awesome.quit, {description = "quit awesome", group = "awesome"}),
+
   awful.key({ mod }, "/", hotkeys_popup.show_help, {description="show help", group="awesome"}),
   awful.key({ mod }, ",", awful.tag.viewprev, {description = "view previous", group = "tag"}),
   awful.key({ mod }, ".",  awful.tag.viewnext, {description = "view next", group = "tag"}),
@@ -220,37 +211,39 @@ globalkeys = gears.table.join(
   -- Move, focus and resize windows
   -- awful.key({ mod }, "j", function () awful.client.focus.byidx( 1) end, {description = "focus next by index", group = "client"}),
   -- awful.key({ mod }, "k", function () awful.client.focus.byidx(-1) end, {description = "focus previous by index", group = "client"}),
-  awful.key({ mod }, "j", function () awful.client.focus.bydirection("down") end, {description = "move focus down", group = "client"}),
-  awful.key({ mod }, "k", function () awful.client.focus.bydirection("up") end, {description = "move focus up", group = "client"}),
-  awful.key({ mod }, "h", function () awful.client.focus.bydirection("left") end, {description = "move focus left", group = "client"}),
-  awful.key({ mod }, "l", function () awful.client.focus.bydirection("right") end, {description = "move focus right", group = "client"}),
-  awful.key({ mod, shift }, "l", function () awful.tag.incmwfact( 0.05) end, {description = "increase master width factor", group = "layout"}),
-  awful.key({ mod, shift }, "h", function () awful.tag.incmwfact(-0.05) end, {description = "decrease master width factor", group = "layout"}),
+  awful.key({ mod }, "j", function () awful.client.focus.global_bydirection("down") end, {description = "move focus down", group = "client"}),
+  awful.key({ mod }, "k", function () awful.client.focus.global_bydirection("up") end, {description = "move focus up", group = "client"}),
+  awful.key({ mod }, "h", function () awful.client.focus.global_bydirection("left") end, {description = "move focus left", group = "client"}),
+  awful.key({ mod }, "l", function () awful.client.focus.global_bydirection("right") end, {description = "move focus right", group = "client"}),
+  -- Resize windows
+  awful.key({ mod, shift }, "l", function () awful.tag.incmwfact( 0.01) end, {description = "increase master width factor", group = "layout"}),
+  awful.key({ mod, shift }, "h", function () awful.tag.incmwfact(-0.01) end, {description = "decrease master width factor", group = "layout"}),
+  awful.key({ mod, shift }, "j", function () awful.client.incwfact( 0.01) end, {description = "increase height factor", group = "layout"}),
+  awful.key({ mod, shift }, "k", function () awful.client.incwfact(-0.01) end, {description = "decrease height factor", group = "layout"}),
 
   awful.key({ mod }, "w", function () main_menu:show() end, {description = "show main menu", group = "awesome"}),
     -- Layout manipulation
-  awful.key({ mod, "Shift" }, "j", function () awful.client.swap.byidx(  1) end, {description = "swap with next client by index", group = "client"}),
-  awful.key({ mod, "Shift" }, "k", function () awful.client.swap.byidx( -1) end, {description = "swap with previous client by index", group = "client"}),
   awful.key({ mod }, "u", awful.client.urgent.jumpto, {description = "jump to urgent client", group = "client"}),
   awful.key({ mod }, "Tab",
-      function ()
-          awful.client.focus.history.previous()
-          if client.focus then
-              client.focus:raise()
-          end
-      end,
-      {description = "go back", group = "client"}),
+    function ()
+        awful.client.focus.history.previous()
+        if client.focus then
+            client.focus:raise()
+        end
+    end,
+    {description = "go back", group = "client"}),
 
   -- Standard program
   awful.key({ mod }, "Return", function () awful.spawn(terminal) end, {description = "open the terminal", group = "launcher"}),
   awful.key({ mod }, space, function () awful.spawn(launcher) end, {description = "Launcher", group = "launcher"}),
   awful.key({ mod }, "r", function () awful.spawn(launcher) end, {description = "Launcher", group = "launcher"}),
-  awful.key({ mod, shift }, "r", awesome.restart, {description = "reload awesome", group = "awesome"}),
-  awful.key({ mod, shift }, "q", awesome.quit, {description = "quit awesome", group = "awesome"}),
   -- awful.key({ mod, shift }, "h", function () awful.tag.incnmaster( 1, nil, true) end, {description = "increase the number of master clients", group = "layout"}),
   -- awful.key({ mod, shift }, "l", function () awful.tag.incnmaster(-1, nil, true) end, {description = "decrease the number of master clients", group = "layout"}),
+  awful.key({ mod, ctrl }, "j", function () awful.client.swap.byidx(  1) end, {description = "swap with next client by index", group = "client"}),
+  awful.key({ mod, ctrl }, "k", function () awful.client.swap.byidx( -1) end, {description = "swap with previous client by index", group = "client"}),
   awful.key({ mod, ctrl }, "h", function () awful.tag.incncol( 1, nil, true) end, {description = "increase the number of columns", group = "layout"}),
   awful.key({ mod, ctrl }, "l", function () awful.tag.incncol(-1, nil, true) end, {description = "decrease the number of columns", group = "layout"}),
+
   awful.key({ mod }, "p", function () awful.layout.inc( 1) end, {description = "select next", group = "layout"}),
   awful.key({ mod, shift }, "space", function () awful.layout.inc(-1) end, {description = "select previous", group = "layout"}),
 
@@ -439,8 +432,8 @@ awful.rules.rules = {
   },
 
   -- Set Firefox to always map on the tag named "2" on screen 1.
-  -- { rule = { class = "Firefox" },
-  --   properties = { screen = 1, tag = "2" } },
+  { rule = { class = "firefox" }, properties = { screen = 1, tag = "1" } },
+  { rule_any = { instance = "Alacritty" }, properties = { screen = 1, tag = "1", maximized = true, floating = false } },
 }
 -- }}}
 
@@ -499,13 +492,8 @@ client.connect_signal("request::titlebars", function(c)
   }
 end)
 
--- Enable sloppy focus, so that focus follows mouse.
--- client.connect_signal("mouse::enter", function(c)
---     c:emit_signal("request::activate", "mouse_enter", {raise = false})
--- end)
-
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
--- }}}
 
 awful.spawn.with_shell("~/.screenlayout/default.sh")
+awful.spawn.with_shell("xrdb ~/.config/X11/Xresources")

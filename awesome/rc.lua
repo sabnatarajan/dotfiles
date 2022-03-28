@@ -286,7 +286,7 @@ client_keys = gears.table.join(
         c:raise()
     end,
     {description = "toggle fullscreen", group = "client"}),
-  awful.key({ mod }, "x",      function (c) c:kill() end, {description = "close", group = "client"}),
+  awful.key({ mod }, "q",      function (c) c:kill() end, {description = "close", group = "client"}),
   awful.key({ mod, "Control" }, "space",  awful.client.floating.toggle , {description = "toggle floating", group = "client"}),
   awful.key({ mod, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end, {description = "move to master", group = "client"}),
   awful.key({ mod, }, "o", function (c) c:move_to_screen() end, {description = "move to screen", group = "client"}),

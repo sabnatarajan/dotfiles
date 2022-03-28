@@ -46,7 +46,7 @@ beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 beautiful.font = "Noto Sans 14"
 beautiful.useless_gap = 4
 -- Setup programs
-terminal   = "alacritty --option window.startup_mode=Windowed"
+terminal   = "alacritty --option window.startup_mode=Windowed" -- my alacritty config defaults to "Maximized"
 editor     = os.getenv("EDITOR") or "nvim"
 editor_cmd = terminal .. " -e " .. editor
 launcher   = "rofi -show"

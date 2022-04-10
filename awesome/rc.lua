@@ -68,9 +68,6 @@ widget_launcher = awful.widget.launcher({ image = beautiful.awesome_icon, menu =
 -- Menubar configuration
 menubar.utils.terminal = terminal -- Set the terminal for applications that require it
 
--- Create a textclock widget
-widget_clock = wibox.widget.textclock()
-
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
   awful.button({ }, 1, function(t) t:view_only() end),
@@ -131,8 +128,8 @@ awful.screen.connect_for_each_screen(function(s)
   s.widget_prompt = awful.widget.prompt()
   -- Create an imagebox widget which will contain an icon indicating which layout we're using.
   -- We need one layoutbox per screen.
-  s.widget_layout = awful.widget.layoutbox(s)
-  s.widget_layout:buttons(gears.table.join(
+  s.widget_layouts = awful.widget.layoutbox(s)
+  s.widget_layouts:buttons(gears.table.join(
     awful.button({ }, 1, function () awful.layout.inc( 1) end),
     awful.button({ }, 3, function () awful.layout.inc(-1) end),
     awful.button({ }, 4, function () awful.layout.inc( 1) end),
@@ -159,29 +156,27 @@ awful.screen.connect_for_each_screen(function(s)
   s.mywibox:setup {
     layout = wibox.layout.align.horizontal,
     { -- Left widgets
-    layout = wibox.layout.fixed.horizontal,
-    widget_launcher,
-    s.tag_list,
-    s.widget_prompt,
-  },
-  {
-    layout = wibox.layout.fixed.horizontal,
-    -- s.task_list, -- Middle widget
-  },
-  { -- Right widgets
-  layout = wibox.layout.fixed.horizontal,
-  wibox.widget.systray(),
-  widget_clock,
-  s.widget_layout,
-},
+      layout = wibox.layout.fixed.horizontal,
+      widget_launcher,
+      s.tag_list,
+      s.widget_prompt,
+    },
+    {
+      layout = wibox.layout.fixed.horizontal,
+      -- s.task_list, -- Middle widget
+    },
+    { -- Right widgets
+      layout = wibox.layout.fixed.horizontal,
+      wibox.widget.systray(),
+      require("widgets/clock"),
+      s.widget_layouts,
+    },
   }
 end)
 
 -- Mouse bindings
 root.buttons(gears.table.join(
-  awful.button({ }, 3, function () main_menu:toggle() end),
-  awful.button({ }, 4, awful.tag.viewnext),
-  awful.button({ }, 5, awful.tag.viewprev)
+  awful.button({ }, 3, function () main_menu:toggle() end)
 ))
 
 local groups = {

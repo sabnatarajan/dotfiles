@@ -18,4 +18,5 @@ Host gl
   IdentityFile ~/.ssh/yubikey_rsa.pub
 
 Host *
+  IdentityFile ~/.ssh/yubikey_rsa.pub
   User sab

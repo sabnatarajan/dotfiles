@@ -19,4 +19,6 @@ Host gl
 
 Host *
   IdentityFile ~/.ssh/yubikey_rsa.pub
-  User sab
+  AddKeysToAgent yes
+  IdentitiesOnly yes
+  User root

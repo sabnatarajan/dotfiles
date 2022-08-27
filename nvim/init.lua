@@ -1,6 +1,6 @@
 -- Neovim config
-require "settings"
 require "plugins"
+require "settings"
 require "completion"
 require "lsp"
 
@@ -43,7 +43,26 @@ local luasnip = require 'luasnip'
 -- Treesitter
 -----------------------------------------------------------------------
 local ts = require 'nvim-treesitter.configs'
-ts.setup {ensure_installed = 'maintained', highlight = {enable = true}}
+ts.setup {
+  ensure_installed = {
+    'c', 'lua',
+    'rust',
+    'bash', 'fish', 'gitignore',
+    'go', 'gomod',
+    'help', 'comment',
+    'hjson', 'json', 'json5', 'jsonc', 'yaml',
+    'hocon',
+    'dockerfile', 'hcl',
+    'java', 'scala',
+    'javascript', 'tsx', 'html', 'css',
+    'markdown', 'markdown_inline',
+    'proto',
+    'vim',
+  },
+  sync_install = false,
+  auto_install = true,
+  highlight = {enable = true}
+}
 
 
 -----------------------------------------------------------------------

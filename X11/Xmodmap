@@ -1,0 +1,21 @@
+! Reverse scrolling
+pointer = 1 2 3 5 4 7 6 8 9 10
+
+! Alt_R as modifier
+clear lock
+clear mod1
+clear mod4
+keycode 64  = Super_L
+keycode 108 = Mode_switch
+add mod1 = Alt_L
+add mod4 = Super_L
+
+! Vim-like arrows
+keysym h = h H Left
+keysym j = j J Down
+keysym k = k K Up
+keysym l = l L Right
+keysym x = x X exclam
+keysym c = c C at
+keysym v = v V numbersign
+

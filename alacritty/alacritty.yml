@@ -18,7 +18,7 @@ font:
   normal:
     family: "JetBrainsMono Nerd Font" # FiraCode Nerd Font has poor glyphs
     style: Regular
-  size: 14.0
+  size: 12.0
 
 # TODO: Use base16 for this
 # Base16 Dracula 256 - alacritty color config

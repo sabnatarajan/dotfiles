@@ -151,6 +151,9 @@ awful.screen.connect_for_each_screen(function(s)
 
   -- Create the wibox
   s.mywibox = awful.wibar({ position = "top", screen = s })
+  s.sep_widget = require("widgets.separator")
+  s.battery_widget = require("awesome-wm-widgets.battery-widget.battery")
+  s.volume_widget = require("awesome-wm-widgets.volume-widget.volume")
 
   -- Add widgets to the wibox
   s.mywibox:setup {
@@ -167,7 +170,17 @@ awful.screen.connect_for_each_screen(function(s)
     },
     { -- Right widgets
       layout = wibox.layout.fixed.horizontal,
+      s.sep_widget,
+      s.volume_widget(),
+      s.sep_widget,
+      s.battery_widget({
+	font="Noto Sans 12",
+	show_current_level=true,
+	display_notification=true,
+      }),
+      s.sep_widget,
       wibox.widget.systray(),
+      s.sep_widget,
       require("widgets/clock"),
       s.widget_layouts,
     },
@@ -400,4 +413,6 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 awful.spawn.with_shell("~/.screenlayout/default.sh")
 awful.spawn.with_shell("~/.local/bin/keyboard-settings.sh")
+awful.spawn.with_shell("nm-applet")
+awful.spawn.with_shell("flameshot")
 awful.spawn.with_shell("xrdb ~/.config/X11/Xresources")

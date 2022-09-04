@@ -23,7 +23,7 @@ require("startup")
 local utils = require("utils")
 
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
-beautiful.font = "Noto Sans 12"
+beautiful.font = "JetBrainsMono Nerd Font 12"
 beautiful.useless_gap = 2
 
 -- Setup programs
@@ -190,7 +190,7 @@ awful.screen.connect_for_each_screen(function(s)
       s.volume_widget{device="default"},
       s.sep_widget,
       s.battery_widget({
-	font="Noto Sans 12",
+	font="JetBrainsMono Nerd Font 10",
 	show_current_level=true,
 	display_notification=true,
       }),

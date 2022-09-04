@@ -23,7 +23,7 @@ require("startup")
 local utils = require("utils")
 
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
-beautiful.font = "Noto Sans 14"
+beautiful.font = "Noto Sans 12"
 beautiful.useless_gap = 2
 
 -- Setup programs

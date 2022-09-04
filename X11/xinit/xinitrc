@@ -4,6 +4,7 @@ eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets)
 export $(gnome-keyring-daemon --start --components=pkcs11,secrets)
 dbus-update-activation-environment --systemd DISPLAY
 
+xset b off & # disable bell
 $HOME/.local/bin/keyboard-settings.sh &
 numlockx &
 picom & 

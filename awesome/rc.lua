@@ -267,6 +267,11 @@ globalkeys = gears.table.join(
   end,
   {description = "restore minimized", group = groups.client}),
 
+  -- Media keys
+  awful.key({}, "XF86AudioRaiseVolume", function() os.execute("pactl set-sink-volume 0 +5%") end),
+  awful.key({}, "XF86AudioLowerVolume", function() os.execute("pactl set-sink-volume 0 -5%") end),
+  awful.key({}, "XF86AudioMute", function() os.execute("pactl set-sink-mute 0 toggle") end),
+
   -- Run lua code
   awful.key({ mod, shift }, "x", utils.run_lua_code, {Description = "lua execute prompt", group = "awesome"})
 )

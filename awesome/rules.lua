@@ -52,5 +52,5 @@ awful.rules.rules = {
   },
 
   { rule = { class = "firefox" }, properties = { tag = "1" } },
-  { rule_any = { instance = "Alacritty" }, properties = { tag = "1" } },
+  { rule_any = { instance = "Alacritty" }, properties = { tag = "2" } },
 }

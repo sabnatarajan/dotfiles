@@ -156,6 +156,14 @@ awful.screen.connect_for_each_screen(function(s)
   s.volume_widget = require("awesome-wm-widgets.volume-widget.volume")
   s.cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
   s.net_speed_widget = require("awesome-wm-widgets.net-speed-widget.net-speed")
+  s.brightness_widget = require("awesome-wm-widgets.brightness-widget.brightness"){
+    program="xbacklight",
+    type="icon_and_text",
+    tooltop=true, percentage=true,
+    timeout=1.5,
+    base=40, -- default to set to on left-click
+    step=10
+  }
 
   -- Add widgets to the wibox
   s.mywibox:setup {
@@ -172,6 +180,8 @@ awful.screen.connect_for_each_screen(function(s)
     },
     { -- Right widgets
       layout = wibox.layout.fixed.horizontal,
+      s.sep_widget,
+      s.brightness_widget,
       s.sep_widget,
       s.cpu_widget{},
       s.sep_widget,
@@ -277,6 +287,12 @@ globalkeys = gears.table.join(
   awful.key({}, "XF86AudioRaiseVolume", function() os.execute("pactl set-sink-volume 0 +5%") end),
   awful.key({}, "XF86AudioLowerVolume", function() os.execute("pactl set-sink-volume 0 -5%") end),
   awful.key({}, "XF86AudioMute", function() os.execute("pactl set-sink-mute 0 toggle") end),
+
+  -- Brightness
+  awful.key({ }, "XF86MonBrightnessDown", function () awful.util.spawn("xbacklight -dec 10") end),
+  awful.key({ }, "XF86MonBrightnessUp", function () awful.util.spawn("xbacklight -inc 10") end),
+  awful.key({ shift }, "XF86MonBrightnessDown", function () awful.util.spawn("xbacklight -dec 20") end),
+  awful.key({ shift }, "XF86MonBrightnessUp", function () awful.util.spawn("xbacklight -inc 20") end),
 
   -- Run lua code
   awful.key({ mod, shift }, "x", utils.run_lua_code, {Description = "lua execute prompt", group = "awesome"})

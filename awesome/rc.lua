@@ -154,6 +154,8 @@ awful.screen.connect_for_each_screen(function(s)
   s.sep_widget = require("widgets.separator")
   s.battery_widget = require("awesome-wm-widgets.battery-widget.battery")
   s.volume_widget = require("awesome-wm-widgets.volume-widget.volume")
+  s.cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
+  s.net_speed_widget = require("awesome-wm-widgets.net-speed-widget.net-speed")
 
   -- Add widgets to the wibox
   s.mywibox:setup {
@@ -171,7 +173,11 @@ awful.screen.connect_for_each_screen(function(s)
     { -- Right widgets
       layout = wibox.layout.fixed.horizontal,
       s.sep_widget,
-      s.volume_widget(),
+      s.cpu_widget{},
+      s.sep_widget,
+      s.net_speed_widget{},
+      s.sep_widget,
+      s.volume_widget{device="default"},
       s.sep_widget,
       s.battery_widget({
 	font="Noto Sans 12",

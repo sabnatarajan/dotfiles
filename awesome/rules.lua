@@ -51,6 +51,6 @@ awful.rules.rules = {
     properties = { titlebars_enabled = true }
   },
 
-  { rule = { class = "firefox" }, properties = { tag = "1" } },
-  { rule_any = { instance = "Alacritty" }, properties = { tag = "2" } },
+  { rule = { class = "firefox" }, properties = { tag = "web" } },
+  { rule_any = { instance = "Alacritty" }, properties = { tag = "term" } },
 }

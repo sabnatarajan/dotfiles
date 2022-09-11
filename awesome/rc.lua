@@ -25,6 +25,7 @@ local utils = require("utils")
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 beautiful.font = "JetBrainsMono Nerd Font 12"
 beautiful.useless_gap = 2
+beautiful.systray_icon_spacing = 5
 
 -- Setup programs
 terminal   = "alacritty --option window.startup_mode=Windowed" -- my alacritty config defaults to "Maximized"

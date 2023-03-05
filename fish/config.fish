@@ -12,6 +12,10 @@ and test (tty) = "/dev/tty1"
   startx ~/.config/X11/xinit/xinitrc
 end
 
+if status is-interactive
+  source ~/.config/fish/setup.fish
+end
+
 # Autostart tmux
 # Adapted from https://github.com/fish-shell/fish-shell/issues/4434#issuecomment-332626369
 # only run in interactive (not automated SSH for example)

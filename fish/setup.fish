@@ -10,12 +10,12 @@ abbr p fish_clipboard_paste
 
 # DIRECTORY
 abbr -a -- - 'cd -'
-abbr l   "exa --long --header"
-abbr la  "exa --long --header --all"
-abbr lag "exa --long --header --all --grid"
-abbr l1  "exa -1"
-abbr lt  "exa --tree"
-abbr llt "exa --long --tree"
+abbr l   "eza --long --header"
+abbr la  "eza --long --header --all"
+abbr lag "eza --long --header --all --grid"
+abbr l1  "eza -1"
+abbr lt  "eza --tree"
+abbr llt "eza --long --tree"
 
 abbr ..    "cd .."
 abbr ...   "cd ../.."

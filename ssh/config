@@ -6,7 +6,7 @@ Host sn
   HostName github.com
   User git
   IdentitiesOnly yes
-  IdentityFile ~/.ssh/yubikey_rsa.pub
+  IdentityFile ~/.ssh/id_sabnatarajan
   AddKeysToAgent yes
   IdentitiesOnly yes
 
@@ -15,10 +15,10 @@ Host gl
   User git
   AddKeysToAgent yes
   IdentitiesOnly yes
-  IdentityFile ~/.ssh/yubikey_rsa.pub
+  IdentityFile ~/.ssh/id_sabnatarajan
 
 Host *
-  IdentityFile ~/.ssh/yubikey_rsa.pub
+  IdentityFile ~/.ssh/id_sabnatarajan
   AddKeysToAgent yes
   IdentitiesOnly yes
   User root

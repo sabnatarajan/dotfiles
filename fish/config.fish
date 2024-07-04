@@ -4,9 +4,6 @@ fish_vi_key_bindings  # vi-mode
 set -Ux EDITOR nvim
 set -Ux VISUAL nvim
 
-set -Ux STARSHIP_CONFIG ~/.config/starship/starship.toml
-starship init fish | source
-
 if status is-interactive
 and test (tty) = "/dev/tty1"
   startx ~/.config/X11/xinit/xinitrc

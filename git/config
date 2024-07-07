@@ -1,6 +1,6 @@
 [user]
   name  = Sab Natarajan
-  email = sab.natarajan@gmail.com
+  email = git@sabnatarajan.com
 	signingkey = ~/.ssh/id_sabnatarajan.pub
 
 [gpg]

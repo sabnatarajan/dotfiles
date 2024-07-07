@@ -4,7 +4,7 @@
 	signingkey = ~/.ssh/id_sabnatarajan.pub
 
 [gpg]
-  format = ssh
+	format = ssh
 
 [core]
   excludesFile = ~/.config/git/ignore
@@ -29,3 +29,5 @@
 
 [includeIf "gitdir:~/work/"]
   path = ~/work/.config/git/config
+[commit]
+	gpgsign = true

@@ -1,10 +1,10 @@
 [user]
   name  = Sab Natarajan
   email = sab.natarajan@gmail.com
-  signingkey = 7561E764BECC583B
+	signingkey = ~/.ssh/id_sabnatarajan.pub
 
-[commit]
-  gpgsign = true
+[gpg]
+  format = ssh
 
 [core]
   excludesFile = ~/.config/git/ignore

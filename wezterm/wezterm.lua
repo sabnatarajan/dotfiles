@@ -31,12 +31,7 @@ config.keys = {
 	-- Send C-a when pressing C-a twice
 	{ key = "a", mods = "LEADER", action = act.SendKey { key = "a", mods = "CTRL" } },
 	{ key = "c", mods = "LEADER", action = act.ActivateCopyMode },
-	{ 
-		key = "k", mods = "CMD",    action = act.Multiple {
-			act.ClearScrollback 'ScrollbackAndViewport',
-			act.SendKey {key = "l", mods = "CTRL"},
-		},
-	},
+	{ key = "k", mods = "CMD",    action = act.SendKey { key = "l", mods = "CTRL" } },
 
 	-- Pane keybindings
 	{ key = "i", mods = "LEADER", action = act.SplitHorizontal { domain = "CurrentPaneDomain" } },

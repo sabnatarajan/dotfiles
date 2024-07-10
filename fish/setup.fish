@@ -144,3 +144,7 @@ abbr nh  nix-hash
 abbr nch nix-channel
 abbr nd  nix-daemon
 
+# Terraform
+abbr tf terraform
+abbr tm terramate
+abbr tg terragrunt

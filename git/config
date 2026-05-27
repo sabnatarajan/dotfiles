@@ -1,7 +1,7 @@
 [user]
   name  = Sab Natarajan
-  email = git@sabnatarajan.com
-	signingkey = ~/.ssh/id_sabnatarajan.pub
+	email = snatarajan@seatgeek.com
+  signingkey = 7561E764BECC583B
 
 [gpg]
 	format = ssh
@@ -29,5 +29,5 @@
 
 [includeIf "gitdir:~/work/"]
   path = ~/work/.config/git/config
-[commit]
-	gpgsign = true
+[safe]
+	directory = *

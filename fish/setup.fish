@@ -34,7 +34,7 @@ abbr vim nvim
 abbr cat  bat
 abbr catp bat -p
 abbr cc   clear
-abbr dc   docker-compose
+abbr dc   docker compose
 abbr lg   lazygit
 
 # Change config files
@@ -148,3 +148,5 @@ abbr nd  nix-daemon
 abbr tf terraform
 abbr tm terramate
 abbr tg terragrunt
+# Datasynth (internal SG tool)
+abbr ds datasynth

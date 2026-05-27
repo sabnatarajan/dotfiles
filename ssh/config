@@ -1,14 +1,16 @@
+Include ~/.colima/ssh_config
+
 IgnoreUnknown AddKeysToAgent,UseKeychain
-Match host * exec "gpg-connect-agent updatestartuptty /bye"
+# Match host * exec "gpg-connect-agent updatestartuptty /bye"
 Include ~/.local/config/ssh/config
 
 Host sn
   HostName github.com
   User git
   IdentitiesOnly yes
-  IdentityFile ~/.ssh/id_sabnatarajan
+  IdentityFile ~/.ssh/id_sabnatarajan_github
   AddKeysToAgent yes
-  IdentitiesOnly yes
+  IdentityAgent /opt/homebrew/var/run/yubikey-agent.sock
 
 Host gl
   HostName gitlab.com
@@ -18,7 +20,7 @@ Host gl
   IdentityFile ~/.ssh/id_sabnatarajan
 
 Host *
-  IdentityFile ~/.ssh/id_sabnatarajan
+  IdentityFile ~/.ssh/id_sabnatarajan_github
   AddKeysToAgent yes
   IdentitiesOnly yes
   User root

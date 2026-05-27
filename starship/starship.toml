@@ -3,3 +3,13 @@ disabled = true
 
 command_timeout = 1000
 
+[kubernetes]
+disabled = false
+
+[git_status]
+disabled = true
+
+[time]
+disabled = false
+format = '[ $time ]($style) '
+time_format = '%T'

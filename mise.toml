@@ -1,0 +1,13 @@
+[dotfiles]
+# Shell
+"~/.config/fish" = { source = "fish", mode = "symlink" }
+
+# Editor / prompt
+"~/.config/nvim" = { source = "nvim", mode = "symlink" }
+"~/.config/starship/starship.toml" = { source = "starship/starship.toml", mode = "symlink" }
+
+# Git
+"~/.config/git/config" = { source = "git/config", mode = "symlink" }
+"~/.config/git/ignore" = { source = "git/ignore", mode = "symlink" }
+
+# SSH: per-machine via environments (mise.toml@linux / mise.toml@mac)
